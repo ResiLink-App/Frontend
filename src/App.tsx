@@ -1,35 +1,64 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import Home from "./pages/home/Home";
+import { ProgressBarLoader } from "./components/shared/loaders/Loaders";
+import { useEffect, useState } from "react";
+import MainLayout from "./components/layouts/mainlayout/MainLayout";
+import logo from "./assets/images/resilink-black.png"
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [isLoading, setIsLoading] = useState(true); // State to track loading status
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  useEffect(() => {
+    // Simulate loading delay for demonstration purposes
+    const timer = setTimeout(() => {
+      setIsLoading(false); // Set loading state to false after a delay
+    }, 2000); // Adjust delay time as needed
+
+    // Clear the timer to avoid memory leaks
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Render loading spinner or content based on the loading state
+  const renderContent = () => {
+    if (isLoading) {
+      return (
+        <section className="relative h-screen bg-#ededff w-full flex flex-col justify-center items-center">
+          <section className="w-36">
+            <img className="w-full" src={logo} alt="" />
+          </section>
+          <section><ProgressBarLoader /></section>
+        </section>
+      );
+    } else {
+      return (
+        <section className="App text-Plus">
+          <RouterProvider router={router} />
+          <ToastContainer />
+        </section>
+      );
+    }
+  };
+
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <>
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Home />} />
+        </Route>
+        {/* <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password" element={<ResetPassword />} /> */}
+      </>
+    )
+  );
+  return renderContent();
 }
 
-export default App
+export default App;
