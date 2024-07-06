@@ -6,6 +6,7 @@ export default {
       colors: {
         bc: "#0000BF",
         bc2: "#ffc433",
+        para: "#343434",
       },
       fontFamily: {
         Plus: ["Plus Jakarta Sans", "sans-serif"],

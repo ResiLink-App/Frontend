@@ -54,13 +54,17 @@ const Navbar: React.FC = () => {
       link: "/",
     },
     {
+      text: "Listings",
+      link: "/#listings",
+    },
+    {
       text: "About",
       link: "/#about",
     },
-    {
-      text: "Services",
-      link: "/#about",
-    },
+    // {
+    //   text: "Services",
+    //   link: "/#about",
+    // },
     {
       text: "Features",
       link: "/#features",
@@ -114,7 +118,7 @@ const Navbar: React.FC = () => {
         </section>
 
         <section
-          className={`fixed top-0 right-0 h-full p-4 w-full bg-dv text-white z-20 transform transition-transform duration-300 ease-in-out ${isSidebarOpen ? "translate-x-0" : "translate-x-full"
+          className={`fixed top-0 right-0 h-full p-4 w-full bg-bc text-white z-20 transform transition-transform duration-300 ease-in-out ${isSidebarOpen ? "translate-x-0" : "translate-x-full"
             }`}
         >
           <section className="absolute top-6 right-6 z-30">
@@ -138,13 +142,12 @@ const Navbar: React.FC = () => {
               </li>
             ))}
             <ButtonBg
-              className={`px-6 py-3 mt-4 ${scrollHeight > 50 ? "bg-bc2" : "bg-bc"
+              className={`px-6 py-3 mt-4 text-bc ${scrollHeight > 50 ? "bg-white" : "bg-white"
                 }`}
               onClick={() => {
                 navigate("/register");
                 onToggle(); // Close sidebar when button is clicked
               }} 
-              bgColor="blue"
             >
               Get Started
             </ButtonBg>
