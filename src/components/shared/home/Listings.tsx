@@ -1,7 +1,7 @@
 import React from 'react'
-import PropList from '../common/propList/PropList';
 import { ButtonBg } from '../buttons/Buttons';
 import { useNavigate } from 'react-router-dom';
+import PropList from '../../common/propList/PropList';
 
 const Listings: React.FC = () => {
     const navigate = useNavigate();

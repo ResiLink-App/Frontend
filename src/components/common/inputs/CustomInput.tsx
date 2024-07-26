@@ -21,7 +21,7 @@ export const CustomInput: React.FC<InputProps> = ({
           className="w-full bg-transparent py-3 px-4 rounded-md border border-para text-white text-sm font-medium outline-none"
           placeholder={placeholder}
           autoComplete="off"
-          onChange={() => handleChange()}
+          onChange={handleChange}
         />
       </section>
     </>

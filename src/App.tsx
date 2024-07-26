@@ -10,6 +10,10 @@ import { ProgressBarLoader } from "./components/shared/loaders/Loaders";
 import { useEffect, useState } from "react";
 import MainLayout from "./components/layouts/mainlayout/MainLayout";
 import logo from "./assets/images/resilink-black.png"
+import Register from "./pages/register/Register";
+import Login from "./pages/login/Login";
+import ForgotPassword from "./pages/forgotpassword/ForgotPassword";
+import ResetPassword from "./pages/resetPassword/ResetPassword";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true); // State to track loading status
@@ -51,10 +55,10 @@ const App = () => {
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
         </Route>
-        {/* <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/reset-password" element={<ResetPassword />} /> */}
+        <Route path="/reset-password" element={<ResetPassword />} />
       </>
     )
   );

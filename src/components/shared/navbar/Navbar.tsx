@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Logo from "../common/logo/Logo";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { BsList, BsX } from "react-icons/bs";
 import { ButtonBg } from "../buttons/Buttons";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSidenav } from "../../../features/unauth-features/ActionSlice";
 import { RootState } from "../../../types/Interface";
+import Logo from "../../common/logo/Logo";
 
 const Navbar: React.FC = () => {
   const dispatch = useDispatch();

@@ -1,5 +1,5 @@
 import React from 'react'
-import { ListingProps } from '../../../../types/Interface'
+import { ListingProps } from '../../../types/Interface'
 import { FaLocationDot } from 'react-icons/fa6'
 import { MdOutlineBathroom, MdOutlineBedroomParent } from 'react-icons/md'
 import { GiHomeGarage } from 'react-icons/gi'

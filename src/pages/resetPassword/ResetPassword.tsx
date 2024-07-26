@@ -2,8 +2,8 @@
 import { ButtonBg } from "../../components/shared/buttons/Buttons";
 // import { useDispatch, useSelector } from "react-redux";
 import { useRef, useState } from "react";
-import Logo from "../../components/shared/common/logo/Logo";
 import { Link } from "react-router-dom";
+import Logo from "../../components/common/logo/Logo";
 // import { registerUser } from "../../features/userSlice";
 // import { toast } from "react-toastify";
 // import { toastOptions } from "../../utils/toast";

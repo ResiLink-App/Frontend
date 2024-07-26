@@ -1,10 +1,9 @@
-// import { Logo } from "../../components/shared/logo/Logo";
-import { CustomInput } from "../../components/shared/inputs/CustomInput";
 import { ButtonBg } from "../../components/shared/buttons/Buttons";
 // import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import Logo from "../../components/shared/common/logo/Logo";
 import { Link } from "react-router-dom";
+import { CustomInput } from "../../components/common/inputs/CustomInput";
+import Logo from "../../components/common/logo/Logo";
 // import { registerUser } from "../../features/userSlice";
 // import { toast } from "react-toastify";
 // import { toastOptions } from "../../utils/toast";
@@ -85,13 +84,13 @@ const ForgotPassword = () => {
         <>
             <section className="w-full h-screen overflow-y-auto px-2 py-14 bg-dv">
                 <section className="w-full flex justify-center pt-5 md:pt-10 pb-5">
-                    <Logo />
+                    <Logo color={"black"} />
                 </section>
                 <section className="w-full mb-7 flex-col justify-center items-center gap-1 inline-flex">
-                    <section className="text-center text-white text-[22px] font-semibold">
+                    <section className="text-center text-black text-[22px] font-semibold">
                         Forgot your Password
                     </section>
-                    <section className="text-center text-neutral-400 text-opacity-80 text-sm font-normal">
+                    <section className="text-center text-neutral-800 text-opacity-80 text-sm font-normal">
                         Enter your registered email address to get verification code to reset your password
                     </section>
                 </section>
@@ -106,7 +105,8 @@ const ForgotPassword = () => {
                             name={"email"}
                             placeholder={"johndoe@gmail.com"}
                         />
-                        <section className="w-full mb-3">
+
+                        <section className="w-full justify-center flex mb-3">
                             {/* {loading ? (
                 <ButtonBg
                   disable={
@@ -117,23 +117,25 @@ const ForgotPassword = () => {
                   <RoundLoader />
                 </ButtonBg>
               ) : ( */}
-                            <ButtonBg
-                                className="py-3"
-                                onClick={() => { }}
-                                disabled={
-                                    formData.email.trim() === "" ||
-                                    formData.password.trim() === ""
-                                }
-                            >
-                                Send Code
-                            </ButtonBg>
+                            <section className="w-fit">
+                                <ButtonBg
+                                    className="py-3 px-10 bg-bc"
+                                    onClick={() => { }}
+                                    disabled={
+                                        formData.email.trim() === "" ||
+                                        formData.password.trim() === ""
+                                    }
+                                >
+                                    Send Code
+                                </ButtonBg>
+                            </section>
                             {/* )} */}
                         </section>
                         <section className="flex justify-center items-center">
                             <div className="text-center text-para text-[13px] font-normal leading-none">
                                 Remembered your password?
                             </div>
-                            <div className="text-center text-white pl-1 text-[13px] font-semibold">
+                            <div className="text-center text-bc pl-1 text-[13px] font-semibold">
                                 <Link to="/login">Login</Link>
                             </div>
                         </section>

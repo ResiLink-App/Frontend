@@ -1,10 +1,9 @@
 // import { Logo } from "../../components/shared/logo/Logo";
-import GoogleLogo from "../../assets/icons/Google.png";
-import { CustomInput } from "../../components/shared/inputs/CustomInput";
+import { CustomInput } from "../../components/common/inputs/CustomInput";
+import Logo from "../../components/common/logo/Logo";
 import { ButtonBg } from "../../components/shared/buttons/Buttons";
 // import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import Logo from "../../components/shared/common/logo/Logo";
 import { Link } from "react-router-dom";
 // import { registerUser } from "../../features/userSlice";
 // import { toast } from "react-toastify";
@@ -84,19 +83,19 @@ const Register = () => {
   // };
   return (
     <>
-      <section className="w-full h-screen overflow-y-auto px-2 py-14 bg-dv">
+      <section className="w-full h-screen overflow-y-auto px-2 py-14 ">
         <section className="w-full flex justify-center pt-5 md:pt-10 pb-5">
-          <Logo />
+          <Logo color="black" />
         </section>
         <section className="w-full mb-7 flex-col justify-center items-center gap-1 inline-flex">
-          <section className="text-center text-white text-[22px] font-semibold">
+          <section className="text-center text-black text-[22px] font-semibold">
             Create an Account
           </section>
-          <section className="text-center text-neutral-400 text-opacity-80 text-sm font-normal">
+          <section className="text-center text-neutral-800 text-opacity-80 text-sm font-normal">
             Sign up now to get started with an account.
           </section>
         </section>
-        <section className="w-full mb-5 flex justify-center">
+        {/* <section className="w-full mb-5 flex justify-center">
           <section
             // onClick={handleGoogleLogin}
             className="w-[335px] cursor-pointer h-14 px-3.5 py-2 rounded border border-para justify-center items-center gap-5 inline-flex"
@@ -106,14 +105,7 @@ const Register = () => {
               Continue with Google
             </section>
           </section>
-        </section>
-        <section className="w-full flex justify-center items-center mb-5">
-          <div className="w-[126px] h-[0px] border border-para"></div>
-          <div className="text-center text-para text-sm px-5 font-normal leading-[18.76px]">
-            OR
-          </div>
-          <div className="w-[126px] h-[0px] border border-para"></div>
-        </section>
+        </section> */}
         <section className="w-full flex justify-center items-center">
           <form className="w-full md:w-[700px]"
           // onSubmit={(e) => handleRegister(e)}
@@ -159,7 +151,7 @@ const Register = () => {
                 </span>
               </section>
             </section>
-            <section className="w-full mb-3">
+            <section className="w-full justify-center flex mb-3">
               {/* {loading ? (
                 <ButtonBg
                   disable={
@@ -170,23 +162,25 @@ const Register = () => {
                   <RoundLoader />
                 </ButtonBg>
               ) : ( */}
-              <ButtonBg
-                className="py-3"
-                onClick={() => { }}
-                disabled={
-                  formData.email.trim() === "" ||
-                  formData.password.trim() === ""
-                }
-              >
-                Sign Up
-              </ButtonBg>
+              <section className="w-fit">
+                <ButtonBg
+                  className="py-3 px-10 bg-bc"
+                  onClick={() => { }}
+                  disabled={
+                    formData.email.trim() === "" ||
+                    formData.password.trim() === ""
+                  }
+                >
+                  Sign Up
+                </ButtonBg>
+              </section>
               {/* )} */}
             </section>
             <section className="flex justify-center items-center">
               <div className="text-center text-neutral-500 text-[13px] font-normal leading-none">
                 Already have an account?
               </div>
-              <div className="text-center text-white pl-1 text-[13px] font-semibold">
+              <div className="text-center text-bc pl-1 text-[13px] font-semibold">
                 <Link to="/login">Log in</Link>
               </div>
             </section>

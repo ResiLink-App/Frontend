@@ -1,6 +1,6 @@
 export interface ButtonProps {
   children: string;
-  onClick: () => void;
+  onClick?: () => void;
   disabled?: boolean;
   className?: string;
   bgColor?: string;
@@ -11,7 +11,9 @@ export interface InputProps {
   handleChange: () => void;
   type?: string;
   placeholder?: string;
-  name?: string
+  name?: string;
+  cols?: number;
+  rows?: number;
 }
 
 export interface AccordionItem {
@@ -19,6 +21,10 @@ export interface AccordionItem {
   icon: React.ReactNode;
   content: string;
   isOpen?: boolean;
+}
+
+export interface LogoProps {
+  color?: string
 }
 
 export interface RootState {

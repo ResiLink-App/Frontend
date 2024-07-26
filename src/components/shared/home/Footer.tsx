@@ -1,4 +1,4 @@
-import Logo from "../common/logo/Logo";
+import Logo from "../../common/logo/Logo";
 import { FaDiscord, FaFacebook, FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {

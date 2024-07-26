@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSidenav } from "../../../features/unauth-features/ActionSlice";
-import Logo from "../common/logo/Logo";
+import Logo from "../../common/logo/Logo";
 import { RootState } from "../../../types/Interface";
 
 const SideNav: React.FC = () => {
