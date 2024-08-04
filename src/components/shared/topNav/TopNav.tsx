@@ -86,14 +86,16 @@ const TopNav: React.FC = () => {
             </section>
 
             <section
-                className={`fixed top-0 left-0 h-full p-4 w-[250px] bg-bc text-white z-20 transform transition-transform duration-300 ease-in-out ${isSidebarOpen ? "translate-x-0" : "translate-x-full"
+                className={`fixed top-0 left-0 h-full p-4 w-[250px] bg-bc text-white z-20 transform transition-transform duration-300 ease-in-out ${isSidebarOpen ? "translate-x-0" : "-translate-x-[300px]"
                     }`}
             >
                 <section className="h-full w-full flex-col gap-y-[40px] items-center inline-flex py-[26px] ">
                     <section className="h-full flex-col gap-y-[8px] justify-between items-start inline-flex">
-                        <section className="mb-7" onClick={onToggle}>
+                        <section className="mb-7 flex gap-10 flex-col w-full justify-center" >
+                            <section className="w-full flex justify-center">
+                                <CgArrowLongLeft onClick={onToggle} className='text-2xl cursor-pointer' />
+                            </section>
                             <Logo />
-                            <CgArrowLongLeft className='text-2xl' />
                         </section>
                         <section className="">
                             <ul className="flex flex-col gap-10">
