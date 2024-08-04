@@ -4,7 +4,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { MdOutlineBathroom, MdOutlineBedroomParent } from 'react-icons/md';
 import { BsFillStarFill } from 'react-icons/bs';
-import { ButtonBg } from '../../components/shared/buttons/Buttons';
 // import { useNavigate } from 'react-router-dom';
 
 const ListingDetails: React.FC = () => {

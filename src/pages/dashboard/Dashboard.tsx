@@ -1,11 +1,7 @@
 import React from 'react'
-import { BiSolidHomeHeart } from 'react-icons/bi'
 import { BsFillHousesFill, BsHouseSlashFill } from 'react-icons/bs'
 import { FaChartLine } from 'react-icons/fa'
 import { FaHouseSignal } from 'react-icons/fa6'
-import { Link } from 'react-router-dom'
-import { ButtonBg } from '../../components/shared/buttons/Buttons'
-import { GrDocumentDownload } from 'react-icons/gr'
 
 const Dashboard: React.FC = () => {
     const dashboardGrids = [
