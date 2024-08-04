@@ -5,10 +5,12 @@ import { MdOutlineBathroom, MdOutlineBedroomParent } from 'react-icons/md'
 import { GiHomeGarage } from 'react-icons/gi'
 import { AiFillBoxPlot } from 'react-icons/ai'
 import { IoCalendarOutline } from 'react-icons/io5'
+import { useNavigate } from 'react-router-dom'
 
 const PropList: React.FC<ListingProps> = ({ propList }) => {
+    const navigate = useNavigate()
     return (
-        <section className='shadow-xl rounded-xl'>
+        <section onClick={() => navigate("/dashboard/listings/:id")} className='shadow-xl cursor-pointer rounded-xl'>
             <section className='relative'>
                 <section className='z-10 absolute left-3 top-3 bg-bc text-white px-3 py-2 text-sm rounded-xl'>
                     For {propList.listingType}

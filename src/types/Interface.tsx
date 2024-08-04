@@ -1,5 +1,5 @@
 export interface ButtonProps {
-  children: string;
+  children: React.ReactNode;
   onClick?: () => void;
   disabled?: boolean;
   className?: string;
@@ -14,6 +14,35 @@ export interface InputProps {
   name?: string;
   cols?: number;
   rows?: number;
+}
+
+export interface TextAreaProps {
+  label: string;
+  handleChange: () => void;
+  type?: string;
+  placeholder?: string;
+  name?: string;
+  cols?: number;
+  rows?: number;
+}
+
+export interface SelectProps {
+  label: string;
+  handleChange: () => void;
+  type?: string;
+  placeholder?: string;
+  name?: string;
+  options?: any;
+}
+
+export interface UploadProps {
+  handleFileChange: () => void;
+  label: string;
+  image?: {
+    preview?: string
+  }
+  handleClick: () => void;
+  inputRef?: string
 }
 
 export interface AccordionItem {

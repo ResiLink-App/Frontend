@@ -14,6 +14,14 @@ import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
 import ForgotPassword from "./pages/forgotpassword/ForgotPassword";
 import ResetPassword from "./pages/resetPassword/ResetPassword";
+import DashboardLayout from "./components/layouts/dashboardlayout/DashboardLayout";
+import Dashboard from "./pages/dashboard/Dashboard";
+import Listing from "./pages/listing/Listing";
+import AddListing from "./pages/addListing/AddListing";
+import Tenants from "./pages/tenants/Tenants";
+import Analytics from "./pages/analytics/Analytics";
+import ListingDetails from "./pages/listingDetails/ListingDetails";
+import Settings from "./pages/settings/Settings";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true); // State to track loading status
@@ -41,7 +49,7 @@ const App = () => {
       );
     } else {
       return (
-        <section className="App text-Plus">
+        <section className="App font-[Plus]">
           <RouterProvider router={router} />
           <ToastContainer />
         </section>
@@ -59,6 +67,15 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
+        <Route element={<DashboardLayout />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard/listings" element={<Listing />} />
+          <Route path="/dashboard/listings/:id" element={<ListingDetails />} />
+          <Route path="/dashboard/listings/add" element={<AddListing />} />
+          <Route path="/dashboard/tenants" element={<Tenants />} />
+          <Route path="/dashboard/analytics" element={<Analytics />} />
+          <Route path="/dashboard/settings" element={<Settings />} />
+        </Route>
       </>
     )
   );

@@ -4,7 +4,7 @@ import Logo from "../../components/common/logo/Logo";
 import { ButtonBg } from "../../components/shared/buttons/Buttons";
 // import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import { registerUser } from "../../features/userSlice";
 // import { toast } from "react-toastify";
 // import { toastOptions } from "../../utils/toast";
@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 const Register = () => {
   // const dispatch = useDispatch();
   // const loading = useSelector((state) => state.user.loading);
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -165,11 +166,11 @@ const Register = () => {
               <section className="w-fit">
                 <ButtonBg
                   className="py-3 px-10 bg-bc"
-                  onClick={() => { }}
-                  disabled={
-                    formData.email.trim() === "" ||
-                    formData.password.trim() === ""
-                  }
+                  onClick={() => navigate("/dashboard")}
+                  // disabled={
+                  //   formData.email.trim() === "" ||
+                  //   formData.password.trim() === ""
+                  // }
                 >
                   Sign Up
                 </ButtonBg>
