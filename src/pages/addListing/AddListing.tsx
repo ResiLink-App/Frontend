@@ -27,7 +27,7 @@ const AddListing: React.FC = () => {
             </section>
             <section>
                 <form action="">
-                    <section className="w-full mb-4 grid grid-cols-3 gap-3">
+                    <section className="w-full mb-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                         <CustomInput
                             label={"Title"}
                             type={"text"}

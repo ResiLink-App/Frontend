@@ -26,7 +26,7 @@ const Contact = () => {
                     className="text-center font-semibold text-black md:text-4xl text-lg py-3 capitalize"
                 >Contact Us</h1>
             </section>
-            <section className="w-100 py-10 px-20">
+            <section className="w-100 py-10 lg:px-20 px-4">
                 <form onSubmit={(event) => handleSubmit(event)}>
                     <div className="w-full flex gap-5">
                         <div className="w-1/2">

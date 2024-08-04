@@ -171,7 +171,7 @@ const Listing: React.FC = () => {
     ];
     const navigate = useNavigate()
     return (
-        <section className='w-full h-full overflow-y-scroll p-4'>
+        <section className='w-full h-full overflow-y-scroll p-4 pb-20'>
             <section className='mb-10 flex justify-between items-center'>
                 <section className='text-left py-4'>
                     <h2 className='text-2xl tracking-wide text-[#202224] font-bold'>Listings</h2>
