@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { BsBellFill, BsList, BsX } from 'react-icons/bs'
+import { BsBellFill, BsList } from 'react-icons/bs'
 import { LuChevronDownCircle } from 'react-icons/lu'
 import { toggleTopnav } from '../../../features/unauth-features/ActionSlice';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { RootState } from '../../../types/Interface';
 import { useDispatch, useSelector } from 'react-redux';
 import Logo from '../../common/logo/Logo';
@@ -18,7 +18,6 @@ const TopNav: React.FC = () => {
     const dispatch = useDispatch();
     const { topnav } = useSelector((state: RootState) => state.action);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-    const navigate = useNavigate();
 
     const onToggle = () => {
         dispatch(toggleTopnav(!topnav));
