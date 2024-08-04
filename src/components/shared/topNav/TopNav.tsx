@@ -1,12 +1,14 @@
 import React from 'react'
-import { BsBellFill } from 'react-icons/bs'
+import { BsBellFill, BsList } from 'react-icons/bs'
 import { LuChevronDownCircle } from 'react-icons/lu'
 
 const TopNav: React.FC = () => {
     return (
         <section className='py-3 px-4 shadow-2xl w-full'>
-            <section className="flex justify-between">
-                <section></section>
+            <section className="flex items-center justify-between">
+                <section>
+                    <BsList className='text-2xl cursor-pointer'/>
+                </section>
                 <section className='flex items-center gap-5'>
                     <BsBellFill className='text-2xl' />
                     <section className="flex items-center gap-3 cursor-pointer">

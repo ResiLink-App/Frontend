@@ -71,12 +71,12 @@ const Dashboard: React.FC = () => {
         },
     ]
     return (
-        <section className='w-full h-full p-4'>
+        <section className='w-full h-full overflow-y-scroll pb-20 p-4'>
             <section className='mb-10'>
                 <section className='text-left py-4'>
                     <h2 className='text-2xl tracking-wide text-[#202224] font-bold'>Hi Agent</h2>
                 </section>
-                <section className="grid grid-cols-4 gap-4">
+                <section className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4">
                     {dashboardGrids.map((item, i) => (
                         <section key={i} className='bg-white rounded-lg p-5 shadow-md flex items-center justify-between'>
                             <section>
