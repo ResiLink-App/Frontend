@@ -59,6 +59,7 @@ export interface LogoProps {
 export interface RootState {
   action: {
     sidenav: boolean;
+    topnav: boolean;
     // Add other properties if needed
   };
 }
