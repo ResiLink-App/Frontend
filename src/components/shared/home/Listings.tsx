@@ -181,8 +181,8 @@ const Listings: React.FC = () => {
             </section>
             <section className="w-100 py-10">
                 <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                    {rooms.map((propList) => (
-                        <PropList propList={propList} />
+                    {rooms.map((propList, i) => (
+                        <PropList key={i} propList={propList} />
                     ))}
                 </section>
             </section>

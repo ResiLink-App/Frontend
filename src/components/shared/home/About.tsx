@@ -47,8 +47,8 @@ const About = () => {
         <section className="w-full md:w-1/2">
 
           <section className="grid grid-cols-2 gap-10">
-            {steps.map((step) => (
-              <section className="flex flex-col md:flex-row gap-4">
+            {steps.map((step, i) => (
+              <section key={i} className="flex flex-col md:flex-row gap-4">
                 <section className="flex flex-row md:flex-col justify-center">
                   <section className="bg-[#6f79832b]  w-fit p-3 md:p-5  justify-center flex items-center rounded-full">{step.icon}</section>
                 </section>
