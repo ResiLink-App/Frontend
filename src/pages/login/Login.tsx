@@ -1,87 +1,60 @@
-// import { Logo } from "../../components/shared/logo/Logo";
 import { CustomInput } from "../../components/common/inputs/CustomInput";
 import Logo from "../../components/common/logo/Logo";
 import { ButtonBg } from "../../components/shared/buttons/Buttons";
-// import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-// import { registerUser } from "../../features/userSlice";
-// import { toast } from "react-toastify";
-// import { toastOptions } from "../../utils/toast";
-// import RoundLoader from "../../components/shared/loaders/RoundLoader";
-// import { BASE_URL } from "../../utils/constants";
+import { HandleChangeData, RegisterUserResponse, RootState } from "../../types/Interface";
+import RoundLoader from "../../components/shared/loaders/RoundLoader";
+import { loginUser } from "../../features/unauth-features/UserSlice";
+import { toastOptions } from "../../utils/helpers";
+import { toast } from "react-toastify";
 
 const Login = () => {
-  // const dispatch = useDispatch();
-  // const loading = useSelector((state) => state.user.loading);
+  const dispatch = useDispatch();
+  const { loading } = useSelector((state: RootState) => state.user);
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
-  // const handleGoogleLogin = () => {
-  //   window.open(`${BASE_URL}/api/auth/google/callback`, "_self");
-  // };
-  // if (TOKEN) {
-  //   window.location.href = "/feed";
-  // }
-
-  // Check if the URL contains the token after the Google login callback
-  // useEffect(() => {
-  //   const urlParams = new URLSearchParams(window.location.search);
-  //   const token = urlParams.get("token");
-
-  //   if (token) {
-  //     // Dispatch the loginSuccess action to store the token in Redux state
-  //     // dispatch(loginSuccess(token));
-
-  //     // Save the token in local storage
-  //     localStorage.setItem("accessToken", token);
-
-  //     // Remove the token from the URL query parameters
-  //     window.location.href = "/feed";
-  //   }
-  // }, []);
-
-  const handleChange = () => {
-    // const { name, value } = e.target;
-    setFormData({ ...formData });
+  
+  const handleChange = (e: HandleChangeData) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
-  // const handleRegister = (e) => {
-  //   e.preventDefault();
-  //   const payload = formData;
-  //   // //console.log(payload)
-  //   dispatch(registerUser(payload))
-  //     .unwrap()
-  //     .then((res) => {
-  //       //console.log(res);
-  //       if (res.status === false) {
-  //         toast.error(res.message, toastOptions);
-  //       }
-  //       if (res.status === true) {
-  //         toast.success(
-  //           res.message +
-  //             ", " +
-  //             "You will be redirected in less than 3 seconds",
-  //           toastOptions
-  //         );
-  //         setTimeout(() => {
-  //           window.location.pathname = "/feed";
-  //           // navigate("/app/dashboard");
-  //         }, 3000);
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       // //console.log(err);
-  //       if (err.message) {
-  //         toast.error(err.message, toastOptions);
-  //       } else {
-  //         toast.error("Something went wrong", toastOptions);
-  //       }
-  //     });
-  // };
+  const handleLogin = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const payload = formData;
+
+    dispatch(loginUser(payload))
+      .unwrap()
+      .then((res: RegisterUserResponse) => {
+        console.log(res);
+
+        if (!res.status) {
+          toast.error(res.message, toastOptions);
+        } else {
+          toast.success(
+            `${res.message}`,
+            toastOptions
+          );
+          setTimeout(() => {
+            navigate("/dashboard")
+          }, 3000);
+        }
+      })
+      .catch((err: any) => {
+        if (err.message) {
+          toast.error(err.message, toastOptions);
+        } else {
+          toast.error("Something went wrong", toastOptions);
+        }
+      });
+  };
   return (
     <>
       <section className="w-full h-screen overflow-y-auto py-14 bg-dv">
@@ -149,29 +122,32 @@ const Login = () => {
               </section>
             </section>
             <section className="w-full justify-center flex mb-3">
-              {/* {loading ? (
-                <ButtonBg
-                  disable={
-                    formData.email.trim() === "" ||
-                    formData.password.trim() === ""
-                  }
-                >
-                  <RoundLoader />
-                </ButtonBg>
-              ) : ( */}
-              <section className="w-fit">
-                <ButtonBg
-                  className="py-3 px-10 bg-bc"
-                  onClick={() => navigate("/dashboard")}
-                // disabled={
-                //   formData.email.trim() === "" ||
-                //   formData.password.trim() === ""
-                // }
-                >
-                  Log in
-                </ButtonBg>
-              </section>
-              {/* )} */}
+              {loading ? (
+                <section className="w-fit">
+                  <ButtonBg
+                    className="py-3 px-10 bg-bc"
+                    disabled={
+                      formData.email.trim() === "" ||
+                      formData.password.trim() === ""
+                    }
+                  >
+                    <RoundLoader />
+                  </ButtonBg>
+                </section>
+              ) : (
+                <section className="w-fit">
+                  <ButtonBg
+                    className="py-3 px-10 bg-bc"
+                    onClick={handleLogin}
+                    disabled={
+                      formData.email.trim() === "" ||
+                      formData.password.trim() === ""
+                    }
+                  >
+                    Sign Up
+                  </ButtonBg>
+                </section>
+              )}
             </section>
             <section className="flex justify-center items-center">
               <div className="text-center text-para text-[13px] font-normal leading-none">

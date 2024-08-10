@@ -18,7 +18,7 @@ export const CustomInput: React.FC<InputProps> = ({
         <input
           type={type}
           name={name}
-          className="w-full bg-transparent py-3 px-4 rounded-md border border-para text-white text-sm font-medium outline-none"
+          className="w-full bg-transparent py-3 px-4 rounded-md border border-para text-para text-sm font-medium outline-none"
           placeholder={placeholder}
           autoComplete="off"
           onChange={handleChange}

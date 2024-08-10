@@ -106,7 +106,7 @@ const Navbar: React.FC = () => {
                 }`}
               onClick={() => navigate("/register")}
             >
-              Get Started
+              Join as Agent
             </ButtonBg>
           </section>
           <section className="md:hidden">

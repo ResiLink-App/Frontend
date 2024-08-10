@@ -1,6 +1,6 @@
 export interface ButtonProps {
   children: React.ReactNode;
-  onClick?: () => void;
+  onClick?: any;
   disabled?: boolean;
   className?: string;
   bgColor?: string;
@@ -8,7 +8,7 @@ export interface ButtonProps {
 
 export interface InputProps {
   label: string;
-  handleChange: () => void;
+  handleChange: any;
   type?: string;
   placeholder?: string;
   name?: string;
@@ -60,8 +60,21 @@ export interface RootState {
   action: {
     sidenav: boolean;
     topnav: boolean;
-    // Add other properties if needed
   };
+  user: {
+    loading: boolean;
+    data: RegisterUserResponse | null;
+    error: string | null;
+    token: string | null;
+    isLoggedIn: boolean;
+  }
+  account: {
+    data: any, 
+    user: object | null, 
+    uLoading: boolean, 
+    status: string | null, 
+    error: string | null
+  }
 }
 
 export interface ListingProps {
@@ -82,5 +95,45 @@ export interface ListingProps {
       profilePic: string
     },
     postedDate: string
+  };
+}
+
+export interface RegisterUserData {
+  firstName: string
+  lastName: string
+  email: string
+  password: string
+}
+
+export interface ToastOptionsData {
+  position: string,
+  autoClose: string,
+  pauseOnHover: boolean,
+  draggable: boolean,
+  theme: string,
+};
+
+// src/types/userTypes.ts
+
+// Type for user registration request payload
+export interface RegisterUserPayload {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+}
+
+// Type for user registration response
+export interface RegisterUserResponse {
+  token: string;
+  message: string;
+  status: boolean;
+  // Add other fields if needed
+}
+
+export interface HandleChangeData {
+  target: {
+    name: string;
+    value: string;
   };
 }

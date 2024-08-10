@@ -5,6 +5,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Home from "./pages/home/Home";
 import { ProgressBarLoader } from "./components/shared/loaders/Loaders";
 import { useEffect, useState } from "react";
@@ -22,6 +23,7 @@ import Tenants from "./pages/tenants/Tenants";
 import Analytics from "./pages/analytics/Analytics";
 import ListingDetails from "./pages/listingDetails/ListingDetails";
 import Settings from "./pages/settings/Settings";
+import VerifyEmail from "./pages/verifyEmail/VerifyEmail";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true); // State to track loading status
@@ -64,6 +66,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
         </Route>
         <Route path="/register" element={<Register />} />
+        <Route path="/verify-email" element={<VerifyEmail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />

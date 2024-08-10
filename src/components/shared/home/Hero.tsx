@@ -27,7 +27,7 @@ const Hero = () => {
           <section className='w-fit mx-auto'>
             <ButtonBg className='px-10 py-4 bg-bc' onClick={function (): void {
               navigate("/register")
-            }}>Get Started</ButtonBg>
+            }}>Join as Agent</ButtonBg>
           </section>
         </section>
       </section>

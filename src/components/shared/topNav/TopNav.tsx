@@ -19,6 +19,7 @@ const TopNav: React.FC = () => {
     const { topnav } = useSelector((state: RootState) => state.action);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+    const { data } = useSelector((state: RootState) => state.account);
     const onToggle = () => {
         dispatch(toggleTopnav(!topnav));
         setIsSidebarOpen(!isSidebarOpen);
@@ -74,9 +75,9 @@ const TopNav: React.FC = () => {
                 <section className='flex items-center gap-5'>
                     <BsBellFill className='text-2xl' />
                     <section className="flex items-center gap-3 cursor-pointer">
-                        <img className='w-12 h-12' src="https://themedox.com/mykd/wp-content/uploads/2023/10/team02.png" alt="" />
+                        <img className='w-12 h-12' src={data?.profilePic} alt="" />
                         <section className="flex flex-col">
-                            <span className='font-bold'>John Doe</span>
+                            <span className='font-bold'>{data?.firstName} {data?.lastName}</span>
                             <span className='text-sm'>Agent</span>
                         </section>
                         <LuChevronDownCircle className='text-lg' />

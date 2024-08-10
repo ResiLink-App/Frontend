@@ -2,6 +2,8 @@ import React from 'react'
 import { BsFillHousesFill, BsHouseSlashFill } from 'react-icons/bs'
 import { FaChartLine } from 'react-icons/fa'
 import { FaHouseSignal } from 'react-icons/fa6'
+import { RootState } from '../../types/Interface'
+import { useSelector } from 'react-redux'
 
 const Dashboard: React.FC = () => {
     const dashboardGrids = [
@@ -70,11 +72,14 @@ const Dashboard: React.FC = () => {
             email: "david@gmail.com"
         },
     ]
+    const { data } = useSelector((state: RootState) => state.account);
+    console.log(data);
+    
     return (
         <section className='w-full h-full overflow-y-scroll pb-20 p-4'>
             <section className='mb-10'>
                 <section className='text-left py-4'>
-                    <h2 className='text-2xl tracking-wide text-[#202224] font-bold'>Hi Agent</h2>
+                    <h2 className='text-2xl tracking-wide text-[#202224] font-bold'>Hi {data?.firstName}</h2>
                 </section>
                 <section className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4">
                     {dashboardGrids.map((item, i) => (
@@ -109,7 +114,7 @@ const Dashboard: React.FC = () => {
                         </thead>
                         <tbody>
                             {renderData.map((item, i) => (
-                                <tr>
+                                <tr key={i}>
                                     <td className='whitespace-nowrap px-6 py-4 text-center'>{i + 1}</td>
                                     <td className='whitespace-nowrap px-6 py-4 text-center'>{item.room_no}</td>
                                     <td className='whitespace-nowrap px-6 py-4 text-center'>{item.firstName}</td>
