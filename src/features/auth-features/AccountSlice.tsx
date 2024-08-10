@@ -3,6 +3,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { auth_api } from "../../services/auth_services/axiosInstance";
 import { BASE_URL } from "../../utils/apiRoutes";
+import { toast } from "react-toastify";
+import { toastOptions } from "../../utils/helpers";
 
 // Define the async thunk for user registration
 export const getUserProfile: any = createAsyncThunk(
@@ -25,15 +27,18 @@ const AccountSlice = createSlice({
     builder
       .addCase(getUserProfile.pending, (state) => {
         state.status = "loading";
+        state.uLoading = true;
       })
       .addCase(getUserProfile.fulfilled, (state, action) => {
         state.status = "idle";
-        // //console.log(action)
+        state.uLoading = false;
         state.data = action.payload.user;
       })
       .addCase(getUserProfile.rejected, (state, action) => {
         state.status = "idle";
-        state.error = action.payload ? action.payload.error : "Unknown error";
+        state.uLoading = false;
+        state.error = action.payload ? action.payload.error : "Network error";
+        toast.error(action.payload ? action.payload.error : "Network error", toastOptions);
       })
   },
 });

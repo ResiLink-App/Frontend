@@ -24,9 +24,9 @@ auth_api.interceptors.response.use(
     return response;
   },
   async function (error) {
-    // if (error.response && error.response.status === 401) {
-    //   window.location.href = "/login";
-    // }
+    if (error.response && error.response.status === 401) {
+      window.location.href = "/login";
+    }
     return Promise.reject(error);
   }
 );

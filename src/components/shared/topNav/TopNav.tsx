@@ -19,7 +19,7 @@ const TopNav: React.FC = () => {
     const { topnav } = useSelector((state: RootState) => state.action);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-    const { data } = useSelector((state: RootState) => state.account);
+    const { data, uLoading } = useSelector((state: RootState) => state.account);
     const onToggle = () => {
         dispatch(toggleTopnav(!topnav));
         setIsSidebarOpen(!isSidebarOpen);
@@ -74,14 +74,25 @@ const TopNav: React.FC = () => {
                 </section>
                 <section className='flex items-center gap-5'>
                     <BsBellFill className='text-2xl' />
-                    <section className="flex items-center gap-3 cursor-pointer">
-                        <img className='w-12 h-12' src={data?.profilePic} alt="" />
-                        <section className="flex flex-col">
-                            <span className='font-bold'>{data?.firstName} {data?.lastName}</span>
-                            <span className='text-sm'>Agent</span>
+                    {uLoading ? (
+                        <section className="animate-pulse w-32">
+                            <section className="flex w-full items-center cursor-pointer">
+                                <section className="rounded-full bg-slate-500 w-12 h-10 mr-2"></section>
+                                <section className="flex flex-col gap-1 w-full">
+                                    <section className="h-5 w-full bg-slate-500 rounded col-span-1"></section>
+                                    <section className="h-5 w-full bg-slate-500 rounded col-span-1"></section>
+                                </section>
+                            </section>
                         </section>
-                        <LuChevronDownCircle className='text-lg' />
-                    </section>
+                    ) : (
+                        <section className="flex items-center gap-3 cursor-pointer">
+                            <img className='w-12 h-12' src={data?.profilePic} alt="" />
+                            <section className="flex flex-col">
+                                <span className='font-bold'>{data?.firstName} {data?.lastName}</span>
+                                <span className='text-sm'>Agent</span>
+                            </section>
+                            <LuChevronDownCircle className='text-lg' />
+                        </section>)}
                 </section>
             </section>
 

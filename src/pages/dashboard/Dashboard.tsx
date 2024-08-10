@@ -72,14 +72,22 @@ const Dashboard: React.FC = () => {
             email: "david@gmail.com"
         },
     ]
-    const { data } = useSelector((state: RootState) => state.account);
-    console.log(data);
-    
+    const { data, uLoading } = useSelector((state: RootState) => state.account);
+    console.log(uLoading);
+
     return (
         <section className='w-full h-full overflow-y-scroll pb-20 p-4'>
             <section className='mb-10'>
                 <section className='text-left py-4'>
-                    <h2 className='text-2xl tracking-wide text-[#202224] font-bold'>Hi {data?.firstName}</h2>
+                    {uLoading ? (
+                        <div className="animate-pulse">
+                            <div className="space-y-3">
+                                <div className="grid grid-cols-5 gap-4">
+                                    <div className="h-5 bg-slate-500 rounded col-span-1"></div>
+                                </div>
+                            </div>
+                        </div>) : (
+                        <h2 className='text-2xl tracking-wide text-[#202224] font-bold'>Hi {data?.firstName}</h2>)}
                 </section>
                 <section className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4">
                     {dashboardGrids.map((item, i) => (
