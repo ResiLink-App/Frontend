@@ -11,7 +11,7 @@ export const getUserProfile: any = createAsyncThunk(
   "user/register",
   async () => {
     try {
-      const response = await auth_api.get(`${BASE_URL}/v1/user/account/profile`);
+      const response = await auth_api.get(`${BASE_URL}/v1/agent/account/profile`);
       return response.data;
     } catch (error: any) {
       throw error.response?.data?.error || 'Profile get failed';

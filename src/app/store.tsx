@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import actionReducer from "../features/unauth-features/ActionSlice";
 import userReducer from "../features/unauth-features/UserSlice";
 import accountReducer from "../features/auth-features/AccountSlice";
+import listingReducer from "../features/auth-features/ListingSlice";
 import { useDispatch } from "react-redux";
 
 export const store = configureStore({
@@ -9,6 +10,7 @@ export const store = configureStore({
     action: actionReducer,
     user: userReducer,
     account: accountReducer,
+    listing: listingReducer,
   },
 });
 

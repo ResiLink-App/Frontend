@@ -13,7 +13,7 @@ export const registerUser: any = createAsyncThunk<
   "user/register",
   async (payload: RegisterUserPayload) => {
     try {
-      const response = await unauth_api.post(`${BASE_URL}/v1/user/auth/register`, payload);
+      const response = await unauth_api.post(`${BASE_URL}/v1/agent/auth/register`, payload);
       return response.data;
     } catch (error: any) {
       throw error.response?.data?.error || 'Registration failed';
@@ -28,7 +28,7 @@ export const verifyEmail: any = createAsyncThunk<
   "user/verify-email",
   async (payload: RegisterUserPayload) => {
     try {
-      const response = await unauth_api.post(`${BASE_URL}/v1/user/auth/verify-email`, payload);
+      const response = await unauth_api.post(`${BASE_URL}/v1/agent/auth/verify-email`, payload);
       return response.data;
     } catch (error: any) {
       throw error.response?.data?.error || 'Email verify failed';
@@ -43,7 +43,7 @@ export const loginUser: any = createAsyncThunk<
   "user/login",
   async (payload: RegisterUserPayload) => {
     try {
-      const response = await unauth_api.post(`${BASE_URL}/v1/user/auth/login`, payload);
+      const response = await unauth_api.post(`${BASE_URL}/v1/agent/auth/login`, payload);
       return response.data;
     } catch (error: any) {
       throw error.response?.data?.error || 'Login failed';

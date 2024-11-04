@@ -4,6 +4,7 @@ import TopNav from "../../shared/topNav/TopNav";
 import { useDispatch } from "react-redux";
 import { getUserProfile } from "../../../features/auth-features/AccountSlice";
 import { useEffect } from "react";
+import { fetchListings } from "../../../features/auth-features/ListingSlice";
 
 const DashboardLayout = () => {
   const outlet = useOutlet();
@@ -13,6 +14,7 @@ const DashboardLayout = () => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getUserProfile());
+    dispatch(fetchListings());
   }, [dispatch]);
 
   return (

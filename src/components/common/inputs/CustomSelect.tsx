@@ -9,15 +9,15 @@ export const CustomSelect: React.FC<SelectProps> = ({
 }) => {
   return (
     <>
-      <section>
-        <div className="w-100">
-          {label && <label>{label} </label>}
-          <select name={name} onChange={handleChange}>
+      <section className="w-full mb-3">
+          {label && <label className="text-para text-xs font-medium mb-3">
+            {label}
+          </label>}
+          <select className="w-full bg-transparent py-3 px-4 rounded-md border border-para text-para text-sm font-medium outline-none" name={name} onChange={handleChange}>
             {options?.map((data: { value: string | number | readonly string[] | undefined; text: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; }, id: Key | null | undefined) => (
               <option key={id} value={data?.value}>{data?.text}</option>
             ))}
           </select>
-        </div>
       </section>
     </>
   );

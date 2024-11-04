@@ -18,7 +18,7 @@ export interface InputProps {
 
 export interface TextAreaProps {
   label: string;
-  handleChange: () => void;
+  handleChange: any;
   type?: string;
   placeholder?: string;
   name?: string;
@@ -28,7 +28,7 @@ export interface TextAreaProps {
 
 export interface SelectProps {
   label: string;
-  handleChange: () => void;
+  handleChange: any;
   type?: string;
   placeholder?: string;
   name?: string;
@@ -36,13 +36,13 @@ export interface SelectProps {
 }
 
 export interface UploadProps {
-  handleFileChange: () => void;
   label: string;
-  image?: {
-    preview?: string
-  }
+  images?: any;
+  handleFileChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleClick: () => void;
-  inputRef?: string
+  handleEdit: any;
+  handleRemove: any;
+  inputRef: React.RefObject<HTMLInputElement>;
 }
 
 export interface AccordionItem {
@@ -68,17 +68,24 @@ export interface RootState {
     token: string | null;
     isLoggedIn: boolean;
   }
+  listing: {
+    listings: any
+    listings_loading: boolean,
+    listings_error: string | null
+  }
   account: {
-    data: any, 
-    user: object | null, 
-    uLoading: boolean, 
-    status: string | null, 
+    data: any,
+    user: object | null,
+    uLoading: boolean,
+    status: string | null,
     error: string | null
   }
 }
 
 export interface ListingProps {
   propList: {
+    [x: string]: any;
+    postedBy: any;
     displayImage: string,
     listingType: string,
     amount: string,

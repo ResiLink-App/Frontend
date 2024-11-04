@@ -19,11 +19,11 @@ const PropList: React.FC<ListingProps> = ({ propList }) => {
                     {propList.amount}<span className='text-white text-base'>/{propList.rentalPeriod}</span>
                 </section>
                 <section className='absolute inset-0 bg-black opacity-20 rounded-xl'></section>
-                <img className='h-[250px] w-full object-cover rounded-t-xl' src={propList.displayImage} alt={propList.displayImage} />
+                <img className='h-[250px] w-full object-cover rounded-t-xl' src={propList.images[0]} alt={propList.displayImage} />
             </section>
             <section className='p-5'>
                 <h2 className='text-bc font-semibold text-xl mb-2'>{propList.propertyName}</h2>
-                <p className='text-para w-full flex items-center gap-1 text-sm mb-4'><FaLocationDot /><span>{propList.location}</span></p>
+                <p className='text-para w-full flex items-center gap-1 text-sm mb-4'><FaLocationDot /><span>{propList.propertyName}</span></p>
                 <section className='w-full grid grid-cols-2 text-para text-sm'>
                     <section className="flex items-center gap-2"><MdOutlineBedroomParent /><span>{propList.bedrooms} Bedroom(s)</span></section>
                     <section className="flex items-center gap-2"><MdOutlineBathroom /><span>{propList.bathrooms} Bathroom(s)</span></section>
@@ -35,9 +35,9 @@ const PropList: React.FC<ListingProps> = ({ propList }) => {
                 <section className="flex justify-between">
                     <section className="flex gap-1 items-center">
                         <section className="w-[30px] h-[30px] rounded-full">
-                            <img className="w-full rounded-full" src={propList.agentInCharge.profilePic} alt="" />
+                            <img className="w-full rounded-full" src={propList.postedBy.profilePic} alt="" />
                         </section>
-                        <span className=''>{propList.agentInCharge.title} {propList.agentInCharge.firstName}</span>
+                        <span className=''>{propList.postedBy.title} {propList.postedBy.firstName}</span>
                     </section>
                     <section className="flex gap-2 items-center">
                         <IoCalendarOutline />

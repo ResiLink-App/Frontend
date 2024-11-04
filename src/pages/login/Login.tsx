@@ -144,7 +144,7 @@ const Login = () => {
                       formData.password.trim() === ""
                     }
                   >
-                    Sign Up
+                    Login
                   </ButtonBg>
                 </section>
               )}
