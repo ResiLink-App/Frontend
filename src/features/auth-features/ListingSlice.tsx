@@ -5,6 +5,7 @@ import { BASE_URL } from "../../utils/apiRoutes";
 import { toast } from "react-toastify";
 import { toastOptions } from "../../utils/helpers";
 import { auth_api } from "../../services/fileAuth_services/axiosInstance";
+import { unauth_api } from "../../services/unauth_services/axiosInstance";
 
 export const addListing: any = createAsyncThunk(
     "agent/listing/add",
@@ -22,7 +23,19 @@ export const fetchListings: any = createAsyncThunk(
     "agent/listing/fetch",
     async () => {
         try {
-            const response = await auth_api.get(`${BASE_URL}/v1/agent/listing/all`);
+            const response = await unauth_api.get(`${BASE_URL}/v1/agent/listing/all`);
+            return response.data;
+        } catch (error: any) {
+            throw error.response?.data?.error || 'Listing fetch failed';
+        }
+    }
+);
+
+export const fetchListingDetails: any = createAsyncThunk(
+    "agent/listing/id/fetch",
+    async (listingId) => {
+        try {
+            const response = await unauth_api.get(`${BASE_URL}/v1/agent/listing/${listingId}`);
             return response.data;
         } catch (error: any) {
             throw error.response?.data?.error || 'Listing fetch failed';
@@ -33,9 +46,12 @@ export const fetchListings: any = createAsyncThunk(
 const ListingSlice = createSlice({
     name: "listing",
     initialState: {
-        listings: {},
+        listings: [],
         listings_loading: false,
-        listings_error: null
+        listings_error: null,
+        listing_details: {},
+        listing_details_loading: {},
+        listing_details_error: {},
     },
     reducers: {},
     extraReducers: (builder) => {
@@ -50,6 +66,19 @@ const ListingSlice = createSlice({
             .addCase(fetchListings.rejected, (state, action) => {
                 state.listings_loading = false;
                 state.listings_error = action.payload ? action.payload.error : "Network error";
+                toast.error(action.payload ? action.payload.error : "Network error", toastOptions);
+            })
+
+            .addCase(fetchListingDetails.pending, (state) => {
+                state.listing_details_loading = true;
+            })
+            .addCase(fetchListingDetails.fulfilled, (state, action) => {
+                state.listing_details_loading = false;
+                state.listing_details = action.payload.data;
+            })
+            .addCase(fetchListingDetails.rejected, (state, action) => {
+                state.listing_details_loading = false;
+                state.listing_details_error = action.payload ? action.payload.error : "Network error";
                 toast.error(action.payload ? action.payload.error : "Network error", toastOptions);
             })
     },

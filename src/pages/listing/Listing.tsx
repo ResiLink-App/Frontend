@@ -23,7 +23,7 @@ const Listing: React.FC = () => {
             <section>
                 <section className="w-100 py-5">
                     {listings.length > 1 && !listings_loading ? (<section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                        {listings.map((propList) => (
+                        {listings.map((propList: any) => (
                             <PropList propList={propList} />
                         ))}
                     </section>) : (<section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">

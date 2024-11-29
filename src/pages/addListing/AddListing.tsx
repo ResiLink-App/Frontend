@@ -5,14 +5,14 @@ import { CustomTextArea } from '../../components/common/inputs/CustomTextArea';
 import { ButtonBg } from '../../components/shared/buttons/Buttons';
 import { CustomSelect } from '../../components/common/inputs/CustomSelect';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { toastOptions } from '../../utils/helpers';
 import { toast } from 'react-toastify';
 import { addListing } from '../../features/auth-features/ListingSlice';
 
 const AddListing: React.FC = () => {
     const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const dispatch = useDispatch();
     const [data, setData] = useState({
         title: "",

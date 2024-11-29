@@ -1,8 +1,9 @@
 import { useLocation, useNavigate, useOutlet } from "react-router-dom";
 import Navbar from "../../shared/navbar/Navbar";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../types/Interface";
 import { useEffect } from "react";
+import { fetchListings } from "../../../features/auth-features/ListingSlice";
 
 const MainLayout = () => {
   const outlet = useOutlet();
@@ -16,6 +17,10 @@ const MainLayout = () => {
       navigate("/dashboard")
     }
   }, [navigate])
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchListings());
+  }, [dispatch]);
 
 
   return (

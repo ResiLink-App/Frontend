@@ -1,16 +1,21 @@
 import React from 'react'
-import { ListingProps } from '../../../types/Interface'
+import { ListingProps, RootState } from '../../../types/Interface'
 import { FaLocationDot } from 'react-icons/fa6'
 import { MdOutlineBathroom, MdOutlineBedroomParent } from 'react-icons/md'
 import { GiHomeGarage } from 'react-icons/gi'
 import { AiFillBoxPlot } from 'react-icons/ai'
 import { IoCalendarOutline } from 'react-icons/io5'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const PropList: React.FC<ListingProps> = ({ propList }) => {
     const navigate = useNavigate()
+
+    const { isLoggedIn } = useSelector((state: RootState) => state.user);
+    console.log(isLoggedIn);
+    
     return (
-        <section onClick={() => navigate("/dashboard/listings/:id")} className='shadow-xl cursor-pointer rounded-xl'>
+        <section onClick={() => navigate(`${isLoggedIn ? `/dashboard/listings/${propList._id}` : `/listings/details/${propList._id}`}`)} className='shadow-xl cursor-pointer rounded-xl'>
             <section className='relative'>
                 <section className='z-10 absolute left-3 top-3 bg-bc text-white px-3 py-2 text-sm rounded-xl'>
                     For {propList.listingType}
@@ -19,7 +24,7 @@ const PropList: React.FC<ListingProps> = ({ propList }) => {
                     {propList.amount}<span className='text-white text-base'>/{propList.rentalPeriod}</span>
                 </section>
                 <section className='absolute inset-0 bg-black opacity-20 rounded-xl'></section>
-                <img className='h-[250px] w-full object-cover rounded-t-xl' src={propList.images[0]} alt={propList.displayImage} />
+                <img className='h-[250px] w-full object-cover rounded-t-xl' src={propList.images[0] ? propList.images[0] : null} alt={propList.displayImage} />
             </section>
             <section className='p-5'>
                 <h2 className='text-bc font-semibold text-xl mb-2'>{propList.propertyName}</h2>

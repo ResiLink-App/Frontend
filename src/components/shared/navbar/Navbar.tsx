@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link as RouterLink, useNavigate } from "react-router-dom";
+import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
 import { BsList, BsX } from "react-icons/bs";
 import { ButtonBg } from "../buttons/Buttons";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,6 +13,9 @@ const Navbar: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [scrollHeight, setScrollHeight] = useState(0);
   const navigate = useNavigate();
+  const location = useLocation();
+  const currentRoute = location.pathname;
+  console.log(currentRoute);
 
   const onToggle = () => {
     dispatch(toggleSidenav(!sidenav));
@@ -78,7 +81,7 @@ const Navbar: React.FC = () => {
   return (
     <>
       <header
-        className={`md:px-10 px-4 z-20 fixed right-0 left-0 transition-colors duration-300 ${scrollHeight > 50 ? "bg-bc" : "bg-transparent"
+        className={`md:px-10 px-4 z-20 fixed right-0 left-0 transition-colors duration-300 ${scrollHeight > 50 || currentRoute !== "/" ? "bg-black" : "bg-transparent"
           }`}
       >
         <section className="flex items-center justify-between py-4">
@@ -102,7 +105,7 @@ const Navbar: React.FC = () => {
           </section>
           <section className="hidden md:block">
             <ButtonBg
-              className={`px-6 py-3 ${scrollHeight > 50 ? "bg-bc2" : "bg-bc"
+              className={`px-6 py-3 ${scrollHeight > 50 ? "bg-bc" : "bg-bc"
                 }`}
               onClick={() => navigate("/register")}
             >

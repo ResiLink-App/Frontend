@@ -72,12 +72,53 @@ export interface RootState {
     listings: any
     listings_loading: boolean,
     listings_error: string | null
+    listing_details: {
+      "location": {
+        "address": string,
+        "city": string,
+        "state": string,
+        "country": string
+      },
+      "_id": string,
+      "title": string,
+      "type": string,
+      "mode": string,
+      "status": string,
+      "price": number,
+      "commission": number,
+      "totalPrice": number,
+      "rooms": number,
+      "description": string,
+      "images": string[],
+      "video": string,
+      "postedBy": {
+        "_id": string,
+        "firstName": string,
+        "lastName": string,
+        "email": string,
+        "profilePic": string
+      },
+      "createdAt": string,
+      "updatedAt": string,
+      "__v": number
+    }
+    listing_details_loading: boolean;
+    listing_details_error: string | null
   }
   account: {
     data: any,
     user: object | null,
     uLoading: boolean,
     status: string | null,
+    error: string | null
+  }
+  payment: {
+    loading: boolean,
+    paymentDetails: {
+      data: {
+        paymentUrl: string
+      }
+    },
     error: string | null
   }
 }

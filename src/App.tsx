@@ -24,6 +24,9 @@ import Analytics from "./pages/analytics/Analytics";
 import ListingDetails from "./pages/listingDetails/ListingDetails";
 import Settings from "./pages/settings/Settings";
 import VerifyEmail from "./pages/verifyEmail/VerifyEmail";
+import ListingDetail from "./pages/listingDetail/ListingDetail";
+import Payment from "./pages/payment/Payment";
+import TransactionStatus from "./pages/transactionStatus/TransactionStatus";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true); // State to track loading status
@@ -64,12 +67,15 @@ const App = () => {
       <>
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/listings/details/:id" element={<ListingDetail />} />
         </Route>
         <Route path="/register" element={<Register />} />
         <Route path="/verify-email" element={<VerifyEmail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/payment/:paymentType/:id" element={<Payment />} />
+        <Route path="/transaction/status" element={<TransactionStatus />} />
         <Route element={<DashboardLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dashboard/listings" element={<Listing />} />
