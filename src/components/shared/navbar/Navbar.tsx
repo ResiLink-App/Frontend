@@ -68,10 +68,10 @@ const Navbar: React.FC = () => {
     //   text: "Services",
     //   link: "/#about",
     // },
-    {
-      text: "Features",
-      link: "/#features",
-    },
+    // {
+    //   text: "Features",
+    //   link: "/#features",
+    // },
     {
       text: "Contact",
       link: "/#faqs",

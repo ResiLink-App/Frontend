@@ -4,7 +4,7 @@ import { FaDiscord, FaFacebook, FaInstagram, FaTwitter, FaWhatsapp } from "react
 const Footer = () => {
   const iconStyles = "text-4xl text-white"
   return (
-    <section className="relative z-10 py-24 bg-bc flex justify-center md:px-14 px-2">
+    <section className="relative z-10 py-24 bg-black flex justify-center md:px-14 px-2">
       <section className="">
         <section className="flex justify-center mb-8">
           <Logo />
@@ -15,9 +15,6 @@ const Footer = () => {
           </a>
           <a target="_blank" rel="noopener noreferrer" href={"https://www.instagram.com"}>
             <FaInstagram className={iconStyles} />
-          </a>
-          <a target="_blank" rel="noopener noreferrer" href={"https://discord.gg"}>
-            <FaDiscord className={iconStyles} />
           </a>
           <a target="_blank" rel="noopener noreferrer" href={"https://x.com"}>
             <FaTwitter className={iconStyles} />

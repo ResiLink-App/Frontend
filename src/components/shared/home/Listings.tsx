@@ -9,11 +9,6 @@ const Listings: React.FC = () => {
     const navigate = useNavigate();
     const { listings, listings_loading } = useSelector((state: RootState) => state.listing);
     console.log(listings_loading, listings);
-    if (listings_loading) {
-        return (
-            <div className="animate spinner">Loading....</div>
-        )
-    }
     return (
         <section id='listings' className='bg-white md:px-10 px-4 py-20'>
             <section className="w-full text-center">
@@ -32,13 +27,13 @@ const Listings: React.FC = () => {
                 </section>}
 
             </section>
-            <section className="w-full flex justify-center">
+            {/* <section className="w-full flex justify-center">
                 <section className="w-fit">
                     <ButtonBg
                         onClick={() => navigate("/register")} className=' bg-bc px-5 py-4'>Browse More Properties
                     </ButtonBg>
                 </section>
-            </section>
+            </section> */}
         </section>
     )
 }

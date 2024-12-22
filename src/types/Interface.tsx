@@ -132,7 +132,9 @@ export interface ListingProps {
     amount: string,
     rentalPeriod: string,
     propertyName: string,
-    location: string,
+    location: {
+      address: string
+    },
     bedrooms: number,
     bathrooms: number,
     sqFt: number,

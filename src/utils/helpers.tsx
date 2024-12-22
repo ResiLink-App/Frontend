@@ -29,3 +29,18 @@ export const domain = () => {
   // console.log(origin);
   return origin;
 };
+
+export const formatPrice = (price: number) => {
+  if (price === undefined || price === null) return "₦0";
+
+  const suffixes = ["", "K", "M", "B", "T"];
+  let index = 0;
+
+  while (price >= 1000 && index < suffixes.length - 1) {
+    price /= 1000;
+    index++;
+  }
+
+  return `₦${price.toFixed(price % 1 === 0 ? 0 : 2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}${suffixes[index]}`;
+}
+

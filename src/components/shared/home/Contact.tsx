@@ -71,11 +71,12 @@ const Contact = () => {
                         rows={10}
                         handleChange={handleChange}
                     />
-                    <div className="d-flex justify-content-center">
+                    <div className="w-full flex justify-center mt-5">
                         {/* {!loading ? ( */}
-                        <div>
-                            <ButtonBg>Send Message</ButtonBg>
-                        </div>
+                        <section className="w-fit">
+                            <ButtonBg className='bg-bc px-5 py-4'>Send Message
+                            </ButtonBg>
+                        </section>
                         {/* ) : (
                             <ButtonDefault>
                                 <RoundLoader />

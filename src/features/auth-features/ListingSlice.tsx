@@ -49,7 +49,39 @@ const ListingSlice = createSlice({
         listings: [],
         listings_loading: false,
         listings_error: null,
-        listing_details: {},
+        listing_details: {
+            "location": {
+                "address": "",
+                "city": "",
+                "state": "",
+                "country": ""
+            },
+            "_id": "",
+            "title": "",
+            "type": "",
+            "mode": "",
+            "status": "",
+            "price": 0,
+            "commission": 0,
+            "totalPrice": 0,
+            "rooms": 3,
+            "description": "",
+            "images": [
+                "",
+                ""
+            ],
+            "video": "",
+            "postedBy": {
+                "_id": "",
+                "firstName": "",
+                "lastName": "",
+                "email": "",
+                "profilePic": ""
+            },
+            "createdAt": "",
+            "updatedAt": "",
+            "__v": 0
+        },
         listing_details_loading: {},
         listing_details_error: {},
     },
