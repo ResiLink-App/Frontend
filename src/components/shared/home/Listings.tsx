@@ -1,12 +1,11 @@
 import React from 'react'
-import { ButtonBg } from '../buttons/Buttons';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import PropList from '../../common/propList/PropList';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../types/Interface';
 
 const Listings: React.FC = () => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const { listings, listings_loading } = useSelector((state: RootState) => state.listing);
     console.log(listings_loading, listings);
     return (
