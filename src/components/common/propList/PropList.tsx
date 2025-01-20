@@ -20,7 +20,7 @@ const PropList: React.FC<ListingProps> = ({ propList }) => {
                 <section className='z-10 absolute left-3 top-3 bg-bc text-white px-3 py-2 text-sm rounded-xl'>
                     For {propList.mode === 'RENT' ? 'Rent' : 'Sale'}
                 </section>
-                <section className='z-10 text-white bg-bc p-3 text-xl absolute bottom-0 right-0 rounded-tl-lg font-bold tracking-wider'>
+                <section className='z-10 text-white bg-bc p-3 text-xl absolute bottom-0 right-0 rounded-tl-lg font-bold tracking-wider font-Kriss'>
                     {formatPrice(propList.totalPrice)}<span className='text-bc2 text-base'>/Yr</span>
                 </section>
 

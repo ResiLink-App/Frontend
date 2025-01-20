@@ -10,7 +10,7 @@ const Footer = () => {
           <Logo />
         </section>
         <section className="flex justify-center gap-5 mb-8">
-          <a target="_blank" rel="noopener noreferrer" href={"https://www.facebook.com"}>
+          <a target="_blank" rel="noopener noreferrer" href={"https://www.facebook.com/profile.php?id=61561935312527"}>
             <FaFacebook className={iconStyles} />
           </a>
           <a target="_blank" rel="noopener noreferrer" href={"https://www.instagram.com"}>

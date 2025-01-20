@@ -10,6 +10,7 @@ export default {
       },
       fontFamily: {
         Plus: ["Plus Jakarta Sans", "sans-serif"],
+        Kriss: ["kriss", "sans-serif"],
       },
     },
   },

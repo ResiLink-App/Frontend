@@ -34,7 +34,7 @@ const About = () => {
       <section className="w-full flex flex-col md:flex-row gap-10 items-center">
         <section className="w-full md:w-1/2">
           <h3 className="text-bc font-medium text-lg md:text-xl mb-3 text-center md:text-left">About Us</h3>
-          <h2 className="text-black font-medium text-3xl md:text-4xl mb-8 text-center md:text-left">Why Choose Us?</h2>
+          <h2 className="text-black font-medium text-3xl md:text-4xl mb-8 text-center md:text-left">Why Choose ResiLink?</h2>
           <p className="text-para text-center md:text-left text-sm md:text-lg font-medium mb-8">ResiLink simplifies the process of finding your next home. Welcome to ResiLink, your ultimate destination for connecting with available residences around you, ResiLink simplifies the process of finding your next home. Welcome to ResiLink, your ultimate destination for connecting with available residences around you, </p>
           <section className="w-full flex justify-center md:justify-start">
             <section className='w-fit'>

@@ -81,8 +81,11 @@ const Navbar: React.FC = () => {
   return (
     <>
       <header
-        className={`md:px-10 px-4 z-20 fixed right-0 left-0 transition-colors duration-300 ${scrollHeight > 50 || currentRoute !== "/" ? "bg-black" : "bg-transparent"
-          }`}
+        className={`md:px-10 px-4 z-20 fixed right-0 left-0 transition-colors duration-300 ${
+          scrollHeight > 50 || currentRoute !== "/"
+            ? "bg-black"
+            : "bg-transparent"
+        }`}
       >
         <section className="flex items-center justify-between py-4">
           <section>
@@ -105,11 +108,10 @@ const Navbar: React.FC = () => {
           </section>
           <section className="hidden md:block">
             <ButtonBg
-              className={`px-6 py-3 ${scrollHeight > 50 ? "bg-bc" : "bg-bc"
-                }`}
+              className={`px-6 py-3 ${scrollHeight > 50 ? "bg-bc" : "bg-bc"}`}
               onClick={() => navigate("/register")}
             >
-              Join as Agent
+              Get Started
             </ButtonBg>
           </section>
           <section className="md:hidden">
@@ -121,8 +123,9 @@ const Navbar: React.FC = () => {
         </section>
 
         <section
-          className={`fixed top-0 right-0 h-full p-4 w-full bg-bc text-white z-20 transform transition-transform duration-300 ease-in-out ${isSidebarOpen ? "translate-x-0" : "translate-x-full"
-            }`}
+          className={`fixed top-0 right-0 h-full p-4 w-full bg-bc text-white z-20 transform transition-transform duration-300 ease-in-out ${
+            isSidebarOpen ? "translate-x-0" : "translate-x-full"
+          }`}
         >
           <section className="absolute top-6 right-6 z-30">
             <BsX
@@ -132,9 +135,7 @@ const Navbar: React.FC = () => {
           </section>
           <ul className="flex flex-col items-center gap-14 mt-24">
             {navLinks.map((navLink, index) => (
-              <li
-                onClick={onToggle} key={index}>
-
+              <li onClick={onToggle} key={index}>
                 <RouterLink
                   className="text-base font-medium transition hover:text-bc text-white hover:transition duration-300"
                   to={navLink.link}
@@ -145,12 +146,13 @@ const Navbar: React.FC = () => {
               </li>
             ))}
             <ButtonBg
-              className={`px-6 py-3 mt-4 text-bc ${scrollHeight > 50 ? "bg-white" : "bg-white"
-                }`}
+              className={`px-6 py-3 mt-4 text-bc ${
+                scrollHeight > 50 ? "bg-white" : "bg-white"
+              }`}
               onClick={() => {
                 navigate("/register");
                 onToggle(); // Close sidebar when button is clicked
-              }} 
+              }}
             >
               Get Started
             </ButtonBg>
