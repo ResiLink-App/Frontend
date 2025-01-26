@@ -82,7 +82,7 @@ const Contact: React.FC = () => {
         </h1>
       </section>
       <section className="w-100 py-10 lg:px-20 px-4">
-        <form onSubmit={handleSubmit}>
+        <form action="https://formspree.io/f/mqaeegka" nSubmit={handleSubmit}>
           <div className="w-full flex gap-5">
             <div className="w-1/2">
               <CustomInput
