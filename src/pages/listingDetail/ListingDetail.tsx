@@ -143,7 +143,7 @@ const ListingDetail: React.FC = () => {
               <span className="font-medium">City:</span> Akure
             </li>
           </ul>
-          <ul className="space-y-2">
+          {/* <ul className="space-y-2">
             <li>
               <span className="font-medium">Rooms:</span> 7
             </li>
@@ -153,7 +153,7 @@ const ListingDetail: React.FC = () => {
             <li>
               <span className="font-medium">Bathrooms:</span> 4
             </li>
-          </ul>
+          </ul> */}
         </div>
       </section>
 

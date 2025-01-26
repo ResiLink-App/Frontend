@@ -18,7 +18,7 @@ const Hero = () => {
           <h1
             data-aos="fade-up"
             data-aos-delay="500"
-            className="font-Kriss leading-[40px] md:leading-normal w-full font-bold text-center text-white md:text-[55px] text-[37px] capitalize"
+            className="font-Chalty leading-[40px] md:leading-normal w-full font-bold text-center text-white md:text-[55px] text-[37px] capitalize "
           >
             Connect to your dream residence from your convenience.
           </h1>
@@ -35,7 +35,7 @@ const Hero = () => {
 
           <section className="w-fit mx-auto">
             <ButtonBg
-              className="px-10 py-4 bg-bc"
+              className="px-10 py-4 bg-bc text-white"
               onClick={() => {
                 navigate("/#listings");
               }}

@@ -129,7 +129,7 @@ const Contact: React.FC = () => {
           />
           <div className="w-full flex justify-center mt-5">
             <section className="w-fit">
-              <ButtonBg className="bg-bc px-5 py-4" disabled={loading}>
+              <ButtonBg className="bg-bc px-5 py-4 text-white" disabled={loading}>
                 {loading ? "Sending..." : "Send Message"}
               </ButtonBg>
             </section>

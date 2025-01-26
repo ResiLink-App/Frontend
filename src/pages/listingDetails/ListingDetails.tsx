@@ -131,12 +131,12 @@ const ListingDetails: React.FC = () => {
                                 <div>
                                     <span>City :</span> {listing_details?.location.city}
                                 </div>
-                                <div>
+                                {/* <div>
                                     <span>Rooms :</span> {listing_details.rooms}
                                 </div>
                                 <div>
                                     <span>Bedrooms :</span> {listing_details.rooms}
-                                </div>
+                                </div> */}
                                 <div>
                                     <span>Garage :</span> Available
                                 </div>

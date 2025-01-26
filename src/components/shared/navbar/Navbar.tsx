@@ -108,7 +108,7 @@ const Navbar: React.FC = () => {
           </section>
           <section className="hidden md:block">
             <ButtonBg
-              className={`px-6 py-3 ${scrollHeight > 50 ? "bg-bc" : "bg-bc"}`}
+              className={`px-6 text-white py-3 ${scrollHeight > 50 ? "bg-bc" : "bg-bc"}`}
               onClick={() => navigate("/register")}
             >
               Get Started
@@ -146,7 +146,7 @@ const Navbar: React.FC = () => {
               </li>
             ))}
             <ButtonBg
-              className={`px-6 py-3 mt-4 text-bc ${
+              className={`px-6 text py-3 mt-4 text-bc ${
                 scrollHeight > 50 ? "bg-white" : "bg-white"
               }`}
               onClick={() => {
