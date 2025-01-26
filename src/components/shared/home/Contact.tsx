@@ -1,77 +1,9 @@
-import { FormEvent, useState } from "react";
-import emailjs from "@emailjs/browser";
+import { useState } from "react";
 import { CustomInput } from "../../common/inputs/CustomInput";
 import { ButtonBg } from "../buttons/Buttons";
 
-type FormData = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  subject: string;
-  message: string;
-};
-
 const Contact: React.FC = () => {
-  const [formData, setFormData] = useState<FormData>({
-    firstName: "",
-    lastName: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
   const [loading, setLoading] = useState(false);
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setLoading(true);
-
-    // Gather form data
-    const templateParams = {
-      first_name: formData.firstName,
-      last_name: formData.lastName,
-      email: formData.email,
-      subject: formData.subject,
-      message: formData.message,
-    };
-
-    // Send email via EmailJS
-    emailjs
-      .send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID || "",
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "",
-        templateParams,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY || ""
-      )
-      .then(
-        (result) => {
-          console.log("Email sent successfully:", result.text);
-          alert("Message sent successfully!");
-          // Reset the form data
-          setFormData({
-            firstName: "",
-            lastName: "",
-            email: "",
-            subject: "",
-            message: "",
-          });
-        },
-        (error) => {
-          console.error("Error sending email:", error.text);
-          alert("Failed to send the message. Please try again later.");
-        }
-      )
-      .finally(() => {
-        setLoading(false);
-      });
-  };
 
   return (
     <section id="contact" className="bg-white md:px-10 px-4 py-20">
@@ -87,7 +19,6 @@ const Contact: React.FC = () => {
         <form
           action="https://formspree.io/f/mqaeegka" // Replace with your Formspree or other action URL
           method="POST"
-          onSubmit={handleSubmit} // Ensures EmailJS is triggered
         >
           <div className="w-full flex gap-5">
             <div className="w-1/2">
@@ -96,8 +27,6 @@ const Contact: React.FC = () => {
                 type="text"
                 name="firstName"
                 placeholder="First Name"
-                value={formData.firstName}
-                handleChange={handleChange}
               />
             </div>
             <div className="w-1/2">
@@ -106,8 +35,6 @@ const Contact: React.FC = () => {
                 type="text"
                 name="lastName"
                 placeholder="Last Name"
-                value={formData.lastName}
-                handleChange={handleChange}
               />
             </div>
           </div>
@@ -116,8 +43,6 @@ const Contact: React.FC = () => {
             type="email"
             name="email"
             placeholder="Email"
-            value={formData.email}
-            handleChange={handleChange}
           />
 
           <CustomInput
@@ -125,8 +50,6 @@ const Contact: React.FC = () => {
             type="text"
             name="subject"
             placeholder="Subject"
-            value={formData.subject}
-            handleChange={handleChange}
           />
           <CustomInput
             label="Message"
@@ -135,8 +58,6 @@ const Contact: React.FC = () => {
             placeholder="What are you telling us?"
             cols={30}
             rows={10}
-            value={formData.message}
-            handleChange={handleChange}
           />
           <div className="w-full flex justify-center mt-5">
             <section className="w-fit">
