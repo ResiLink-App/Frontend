@@ -42,9 +42,7 @@ const About = () => {
           <p className="text-para text-center md:text-left text-sm md:text-lg font-medium mb-8">
             ResiLink simplifies the process of finding your next home. Welcome
             to ResiLink, your ultimate destination for connecting with available
-            residences around you, ResiLink simplifies the process of finding
-            your next home. Welcome to ResiLink, your ultimate destination for
-            connecting with available residences around you,{" "}
+            residences around you.{" "}
           </p>
           <section className="w-full flex justify-center md:justify-start">
             <section className="w-fit">
