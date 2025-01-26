@@ -29,9 +29,9 @@ const Hero = () => {
             className="text-neutral-300 text-[16px] w-3/4 text-center md:text-xl md:leading-9 font-medium"
           >
             Welcome to ResiLink, the ultimate platform for discovering exceptional apartments in your area. Our cutting-edge solution simplifies the home-finding process, connecting you with your perfect residence in no time.
-          Zero Stress!
-Zero Agent Fee!
-Free House Cleaning Service!
+         <br> Zero Stress!
+<br>Zero Agent Fee!
+<br>Free House Cleaning Service!
           </p>
 
           <section className="w-fit mx-auto">
