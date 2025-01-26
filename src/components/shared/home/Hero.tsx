@@ -20,7 +20,7 @@ const Hero = () => {
             data-aos-delay="500"
             className="font-Chalty leading-[40px] md:leading-normal w-full font-bold text-center text-white md:text-[55px] text-[37px] capitalize "
           >
-            Connect to your dream residence from your convenience.
+            Find Your Dream Home with Ease
           </h1>
 
           <p
@@ -28,9 +28,7 @@ const Hero = () => {
             data-aos-delay="1000"
             className="text-neutral-300 text-[16px] w-3/4 text-center md:text-xl md:leading-9 font-medium"
           >
-            At ResiLink, we bridge the gap between you and your dream residence.
-            Explore a wide range of options tailored to your lifestyle—all from
-            your convenience.
+            Welcome to ResiLink, the ultimate platform for discovering exceptional apartments in your area. Our cutting-edge solution simplifies the home-finding process, connecting you with your perfect residence in no time.
           </p>
 
           <section className="w-fit mx-auto">
