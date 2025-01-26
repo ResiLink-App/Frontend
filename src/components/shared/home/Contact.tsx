@@ -33,6 +33,7 @@ const Contact: React.FC = () => {
     event.preventDefault();
     setLoading(true);
 
+    // Gather form data
     const templateParams = {
       first_name: formData.firstName,
       last_name: formData.lastName,
@@ -41,6 +42,7 @@ const Contact: React.FC = () => {
       message: formData.message,
     };
 
+    // Send email via EmailJS
     emailjs
       .send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID || "",
@@ -48,11 +50,11 @@ const Contact: React.FC = () => {
         templateParams,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY || ""
       )
-
       .then(
         (result) => {
           console.log("Email sent successfully:", result.text);
           alert("Message sent successfully!");
+          // Reset the form data
           setFormData({
             firstName: "",
             lastName: "",
@@ -72,7 +74,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="listings" className="bg-white md:px-10 px-4 py-20">
+    <section id="contact" className="bg-white md:px-10 px-4 py-20">
       <section className="w-full text-center">
         <span className="uppercase text-bc text-base font-medium tracking-widest">
           Have you got issues?
@@ -81,8 +83,12 @@ const Contact: React.FC = () => {
           Contact Us
         </h1>
       </section>
-      <section className="w-100 py-10 lg:px-20 px-4">
-        <form action="https://formspree.io/f/mqaeegka" nSubmit={handleSubmit}>
+      <section className="w-full py-10 lg:px-20 px-4">
+        <form
+          action="https://formspree.io/f/mqaeegka" // Replace with your Formspree or other action URL
+          method="POST"
+          onSubmit={handleSubmit} // Ensures EmailJS is triggered
+        >
           <div className="w-full flex gap-5">
             <div className="w-1/2">
               <CustomInput
@@ -90,6 +96,7 @@ const Contact: React.FC = () => {
                 type="text"
                 name="firstName"
                 placeholder="First Name"
+                value={formData.firstName}
                 handleChange={handleChange}
               />
             </div>
@@ -99,6 +106,7 @@ const Contact: React.FC = () => {
                 type="text"
                 name="lastName"
                 placeholder="Last Name"
+                value={formData.lastName}
                 handleChange={handleChange}
               />
             </div>
@@ -108,6 +116,7 @@ const Contact: React.FC = () => {
             type="email"
             name="email"
             placeholder="Email"
+            value={formData.email}
             handleChange={handleChange}
           />
 
@@ -116,6 +125,7 @@ const Contact: React.FC = () => {
             type="text"
             name="subject"
             placeholder="Subject"
+            value={formData.subject}
             handleChange={handleChange}
           />
           <CustomInput
@@ -125,6 +135,7 @@ const Contact: React.FC = () => {
             placeholder="What are you telling us?"
             cols={30}
             rows={10}
+            value={formData.message}
             handleChange={handleChange}
           />
           <div className="w-full flex justify-center mt-5">
