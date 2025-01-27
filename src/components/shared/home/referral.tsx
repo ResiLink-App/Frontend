@@ -1,17 +1,17 @@
 const ExclusiveBenefits = () => {
   return (
     <section className="md:px-10 px-4 py-20">
-      <div>
+      <>
         <section className="w-full text-center">
           <h3 className="uppercase text-bc text-base font-medium tracking-widest">
             Client Benefits
           </h3>
-          <h2 className="text-center font-semibold text-black md:text-4xl text-lg py-3 capitalize">
+          <h2 className="text-center font-medium text-black text-3xl md:text-4xl mb-4 capitalize">
             Benefits for Our Clients
           </h2>
         </section>
 
-        <div className="py-10">
+        <div className="pb-10 pt-3">
           <p className="text-para text-center text-sm md:text-lg font-medium mb-8">
             After completing your property rental process on ResiLink, enjoy
             complimentary cleaning services to make your move stress-free.
@@ -21,19 +21,17 @@ const ExclusiveBenefits = () => {
             dream home.
           </p>
         </div>
-      </div>
+      </>
 
       {/* Referral Program Section */}
       <section className="w-full flex justify-center md:justify-start">
         <div>
-          <h2 className="text-center font-semibold text-black md:text-4xl text-lg py-3 capitalize">
+          <h2 className="text-center font-medium text-black text-3xl md:text-4xl mb-4 capitalize">
             Earn with ResiLink
           </h2>
-          <div className="flex flex-wrap items-center justify-center  gap-4 py-10 mx-auto">
-            <div className="rounded-[24px] w-[34%] bg-[#6f79832b]  p-4 flex flex-col gap-2 md:py-8">
-              <h3 className="font-Chalty font-semibold text-xl mb-2">
-                Refer and Earn
-              </h3>
+          <div className="flex flex-wrap flex-col md:flex-row items-center justify-center  gap-4 pb-10 pt-3 mx-auto">
+            <div className="rounded-[24px] md:w-[34%] bg-[#6f79832b]/5 p-4 flex flex-col gap-2 md:py-8">
+              <h3 className="font-Chalty text-xl mb-2">Refer and Earn</h3>
               <p className="">
                 Invite your friends to use ResiLink! Earn rewards for every
                 successful rental completed through your referral link.
@@ -43,8 +41,8 @@ const ExclusiveBenefits = () => {
               </button>
             </div>
 
-            <div className="rounded-[24px] w-[34%] bg-[#6f79832b]  p-4 flex flex-col gap-2  md:py-8">
-              <h3 className="font-Chalty  font-semibold text-xl mb-2">
+            <div className="rounded-[24px] md:w-[34%] bg-[#6f79832b]/5  p-4 flex flex-col gap-2  md:py-8">
+              <h3 className="font-Chalty text-xl mb-2">
                 List Properties and Earn
               </h3>
               <p className="">
