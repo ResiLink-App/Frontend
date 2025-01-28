@@ -35,7 +35,7 @@ const ExclusiveBenefits = () => {
               <h3 className="font-Chalty font-semibold text-xl mb-2">
                 Earn quick cash with ResiLink in just 4 easy steps!
               </h3>
-              <p className="">
+              <p className="text-para text-center text-sm md:text-lg font-medium mb-8">
                 Locate an available apartment for rent, such as one from a friend who's moving out.
                 
                 Take pictures of the vacant apartment.
