@@ -25,7 +25,7 @@ const ExclusiveBenefits = () => {
 
       {/* Referral Program Section */}
       <section className="w-full flex justify-center md:justify-start">
-        <<div>
+        <div>
           <h2 className="text-center font-semibold text-black md:text-4xl text-lg py-3 capitalize">
             Earn with ResiLink
           </h2>
@@ -49,11 +49,11 @@ const ExclusiveBenefits = () => {
               </h3>
               <p className="">
                 Locate an available apartment for rent, such as one from a friend who's moving out.
-                <br></br>
+                
                 Take pictures of the vacant apartment.
-<br></br>
+
 Send the pictures to ResiLink's Customer Service Line.
-           <br></br>
+           
                 Get paid after the successful renting of the apartment.
               </p>
               <button className="w-full cursor-pointer rounded-full items-center justify-center inline-flex text-center text-base font-medium leading-normal bg-bc px-10 py-3 text-white">
