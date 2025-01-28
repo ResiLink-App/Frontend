@@ -29,22 +29,10 @@ const ExclusiveBenefits = () => {
           <h2 className="text-center font-semibold text-black md:text-4xl text-lg py-3 capitalize">
             Earn with ResiLink
           </h2>
-          <div className="flex flex-wrap items-center justify-center  gap-4 py-10 mx-auto">
-            <div className="rounded-[24px] w-[34%] bg-[#6f79832b]  p-4 flex flex-col gap-2 md:py-8">
+          <div className="flex flex-wrap items-center justify-center gap-4 py-10 mx-auto">
+            {/* Second Box */}
+            <div className="rounded-[24px] w-[34%] bg-[#6f79832b] p-4 flex flex-col gap-2 md:py-8">
               <h3 className="font-Chalty font-semibold text-xl mb-2">
-                Refer and Earn
-              </h3>
-              <p className="">
-                Invite your friends to use ResiLink! Earn rewards for every
-                successful rental completed through your referral link.
-              </p>
-              <button className="w-full cursor-pointer rounded-full items-center justify-center inline-flex text-center text-base font-medium leading-normal bg-bc px-10 py-3 text-white">
-                Refer Now
-              </button>
-            </div>
-
-            <div className="rounded-[24px] w-[34%] bg-[#6f79832b]  p-4 flex flex-col gap-2  md:py-8">
-              <h3 className="font-Chalty  font-semibold text-xl mb-2">
                 Earn quick cash with ResiLink in just 4 easy steps!
               </h3>
               <p className="">
@@ -52,8 +40,8 @@ const ExclusiveBenefits = () => {
                 
                 Take pictures of the vacant apartment.
 
-Send the pictures to ResiLink's Customer Service Line.
-           
+                Send the pictures to ResiLink's Customer Service Line.
+
                 Get paid after the successful renting of the apartment.
               </p>
               <button className="w-full cursor-pointer rounded-full items-center justify-center inline-flex text-center text-base font-medium leading-normal bg-bc px-10 py-3 text-white">
