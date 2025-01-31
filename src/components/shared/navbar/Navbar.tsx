@@ -74,7 +74,7 @@ const Navbar: React.FC = () => {
     // },
     {
       text: "Contact",
-      link: "/#faqs",
+      link: "/#contact",
     },
   ];
 

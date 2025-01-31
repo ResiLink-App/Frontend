@@ -13,12 +13,11 @@ const Hero = () => {
       <section className="w-full flex h-[100vh] bg-image-container bg-fixed items-center justify-center">
         <section className="absolute bg-black w-full right-0 top-0 h-screen opacity-85"></section>
 
-        <section className="relative  items-center flex gap-y-7  w-full px-2 flex-col">
-        {/* <section className="relative flex gap-y-7 md:w-3/4  w-full px-2 flex-col"> */}
+        <section className="relative items-center flex gap-y-7 w-full px-2 flex-col">
           <h1
             data-aos="fade-up"
             data-aos-delay="500"
-            className="font-Chalty leading-[40px] md:leading-normal w-full font-bold text-center text-white md:text-[55px] text-[37px] capitalize "
+            className="font-Chalty leading-[40px] md:leading-normal w-full font-bold text-center text-white md:text-[55px] text-[37px] capitalize"
           >
             Find Your Dream Home with Ease
           </h1>
@@ -26,12 +25,19 @@ const Hero = () => {
           <p
             data-aos="fade-up"
             data-aos-delay="1000"
-            className="text-neutral-300 text-[16px] w-3/4 text-center md:text-xl md:leading-9 font-medium"
+            className="text-neutral-300 text-[16px] w-96 md:w-3/4 text-center md:text-xl md:leading-9 font-medium"
           >
-            Welcome to ResiLink, the ultimate platform for discovering exceptional apartments in your area. Our cutting-edge solution simplifies the home-finding process, connecting you with your perfect residence in no time.
-         Zero Stress!
-Zero Agent Fee!
-Free House Cleaning Service!
+            Welcome to ResiLink, the ultimate platform for discovering
+            exceptional apartments in your area. Our cutting-edge solution
+            simplifies the home-finding process, connecting you with your
+            perfect residence in no time.
+          </p>
+          <p
+            data-aos="fade-up"
+            data-aos-delay="1000"
+            className="text-neutral-300 text-[16px] w-96 md:w-3/4 text-center md:text-xl md:leading-9 font-medium"
+          >
+            Zero Stress! Zero Agent Fee! Free House Cleaning Service!
           </p>
 
           <section className="w-fit mx-auto">
@@ -46,8 +52,6 @@ Free House Cleaning Service!
           </section>
         </section>
       </section>
-
-      
     </section>
   );
 };

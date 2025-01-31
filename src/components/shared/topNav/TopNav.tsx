@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { BsBellFill, BsList } from 'react-icons/bs'
-import { LuChevronDownCircle } from 'react-icons/lu'
+// import { LuChevronDownCircle } from 'react-icons/lu'
 import { toggleTopnav } from '../../../features/unauth-features/ActionSlice';
 import { Link } from 'react-router-dom';
 import { RootState } from '../../../types/Interface';
@@ -91,7 +91,7 @@ const TopNav: React.FC = () => {
                                 <span className='font-bold'>{data?.firstName} {data?.lastName}</span>
                                 <span className='text-sm'>Agent</span>
                             </section>
-                            <LuChevronDownCircle className='text-lg' />
+                            {/* <LuChevronDownCircle className='text-lg' /> */}
                         </section>)}
                 </section>
             </section>

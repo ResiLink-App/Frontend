@@ -1,9 +1,10 @@
 export interface ButtonProps {
   children: React.ReactNode;
-  onClick?: any;
+  onClick?: () => void;
   disabled?: boolean;
   className?: string;
   bgColor?: string;
+  type?: "button" | "submit" | "reset";
 }
 
 export interface InputProps {
@@ -53,7 +54,7 @@ export interface AccordionItem {
 }
 
 export interface LogoProps {
-  color?: string
+  color?: string;
 }
 
 export interface RootState {
@@ -67,101 +68,101 @@ export interface RootState {
     error: string | null;
     token: string | null;
     isLoggedIn: boolean;
-  }
+  };
   listing: {
-    listings: any
-    listings_loading: boolean,
-    listings_error: string | null
+    listings: any;
+    listings_loading: boolean;
+    listings_error: string | null;
     listing_details: {
-      "location": {
-        "address": string,
-        "city": string,
-        "state": string,
-        "country": string
-      },
-      "_id": string,
-      "title": string,
-      "type": string,
-      "mode": string,
-      "status": string,
-      "price": number,
-      "commission": number,
-      "totalPrice": number,
-      "rooms": number,
-      "description": string,
-      "images": string[],
-      "video": string,
-      "postedBy": {
-        "_id": string,
-        "firstName": string,
-        "lastName": string,
-        "email": string,
-        "profilePic": string
-      },
-      "createdAt": string,
-      "updatedAt": string,
-      "__v": number
-    }
+      location: {
+        address: string;
+        city: string;
+        state: string;
+        country: string;
+      };
+      _id: string;
+      title: string;
+      type: string;
+      mode: string;
+      status: string;
+      price: number;
+      commission: number;
+      totalPrice: number;
+      rooms: number;
+      description: string;
+      images: string[];
+      video: string;
+      postedBy: {
+        _id: string;
+        firstName: string;
+        lastName: string;
+        email: string;
+        profilePic: string;
+      };
+      createdAt: string;
+      updatedAt: string;
+      __v: number;
+    };
     listing_details_loading: boolean;
-    listing_details_error: string | null
-  }
+    listing_details_error: string | null;
+  };
   account: {
-    data: any,
-    user: object | null,
-    uLoading: boolean,
-    status: string | null,
-    error: string | null
-  }
+    data: any;
+    user: object | null;
+    uLoading: boolean;
+    status: string | null;
+    error: string | null;
+  };
   payment: {
-    loading: boolean,
+    loading: boolean;
     paymentDetails: {
       data: {
-        paymentUrl: string
-      }
-    },
-    error: string | null
-  }
+        paymentUrl: string;
+      };
+    };
+    error: string | null;
+  };
 }
 
 export interface ListingProps {
   propList: {
     [x: string]: any;
     postedBy: any;
-    displayImage: string,
-    listingType: string,
-    amount: string,
-    rentalPeriod: string,
-    propertyName: string,
+    displayImage: string;
+    listingType: string;
+    amount: string;
+    rentalPeriod: string;
+    propertyName: string;
     location: {
-      address: string
-    },
-    bedrooms: number,
-    bathrooms: number,
-    sqFt: number,
-    garage: number,
+      address: string;
+    };
+    bedrooms: number;
+    bathrooms: number;
+    sqFt: number;
+    garage: number;
     agentInCharge: {
-      title: string,
-      firstName: string,
-      profilePic: string
-    },
-    postedDate: string
+      title: string;
+      firstName: string;
+      profilePic: string;
+    };
+    postedDate: string;
   };
 }
 
 export interface RegisterUserData {
-  firstName: string
-  lastName: string
-  email: string
-  password: string
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
 }
 
 export interface ToastOptionsData {
-  position: string,
-  autoClose: string,
-  pauseOnHover: boolean,
-  draggable: boolean,
-  theme: string,
-};
+  position: string;
+  autoClose: string;
+  pauseOnHover: boolean;
+  draggable: boolean;
+  theme: string;
+}
 
 // src/types/userTypes.ts
 
