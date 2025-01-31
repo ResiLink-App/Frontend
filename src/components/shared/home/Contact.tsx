@@ -2,26 +2,10 @@ import { useState } from "react";
 import { CustomInput } from "../../common/inputs/CustomInput";
 import { ButtonBg } from "../buttons/Buttons";
 import React from "react";
-import { useForm, ValidationError } from "@formspree/react";
+import { useForm } from "@formspree/react";
 import { SuccessModal } from "./success-modal";
 
-interface FormData {
-  firstName: string;
-  lastName: string;
-  email: string;
-  subject: string;
-  message: string;
-}
-
 const Contact: React.FC = () => {
-  const [formData, setFormData] = useState<FormData>({
-    firstName: "",
-    lastName: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
   // SHOULD CONSIDER PUTTING THE FORM ID: mqaeegka IN THE .ENV
   const [state, handleSubmit] = useForm("mqaeegka");
   const [open, setOpen] = useState(false);
@@ -31,16 +15,6 @@ const Contact: React.FC = () => {
     return <SuccessModal open={open} onOpenChange={setOpen} />;
   }
   const loading = state.submitting;
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
 
   return (
     <section id="contact" className="bg-white md:px-10 px-4 py-20">
@@ -61,7 +35,6 @@ const Contact: React.FC = () => {
                 type="text"
                 name="firstName"
                 placeholder="First Name"
-                handleChange={handleChange}
               />
             </div>
             <div className="w-1/2">
@@ -70,7 +43,6 @@ const Contact: React.FC = () => {
                 type="text"
                 name="lastName"
                 placeholder="Last Name"
-                handleChange={handleChange}
               />
             </div>
           </div>
@@ -79,14 +51,12 @@ const Contact: React.FC = () => {
             type="email"
             name="email"
             placeholder="Email"
-            handleChange={handleChange}
           />
           <CustomInput
             label="Subject"
             type="text"
             name="subject"
             placeholder="Subject"
-            handleChange={handleChange}
           />
           <CustomInput
             label="Message"
@@ -95,7 +65,6 @@ const Contact: React.FC = () => {
             placeholder="What are you telling us?"
             cols={30}
             rows={10}
-            handleChange={handleChange}
           />
           <div className="w-full flex justify-center mt-5">
             <section className="w-fit">

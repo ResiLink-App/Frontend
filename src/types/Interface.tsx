@@ -1,6 +1,6 @@
 export interface ButtonProps {
   children: React.ReactNode;
-  onClick?: () => void;
+  onClick?: any;
   disabled?: boolean;
   className?: string;
   bgColor?: string;
@@ -9,7 +9,7 @@ export interface ButtonProps {
 
 export interface InputProps {
   label: string;
-  handleChange: any;
+  handleChange?: any;
   type?: string;
   placeholder?: string;
   name?: string;
@@ -187,4 +187,12 @@ export interface HandleChangeData {
     name: string;
     value: string;
   };
+}
+
+export interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  subject: string;
+  message: string;
 }
