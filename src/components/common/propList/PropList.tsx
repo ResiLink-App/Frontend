@@ -31,8 +31,7 @@ const PropList: React.FC<ListingProps> = ({ propList }) => {
                 <h2 className='text-bc font-semibold text-xl mb-2'>{propList.title}</h2>
                 <p className='text-para w-full flex items-center gap-1 text-sm mb-4'><FaLocationDot /><span>{propList.location.address}</span></p>
                 <section className='w-full grid grid-cols-2 text-para text-sm'>
-                    <section className="flex items-center gap-2"><MdOutlineBedroomParent /><span>{propList.rooms} Room(s)</span></section>
-                    <section className="flex items-center gap-2"><GiHomeGarage /><span>{propList.garage} Garage(s)</span></section>
+                    
                 </section>
             </section>
             <section className='border-t border-t-neutral-300 px-5 py-3 text-sm text-para'>
