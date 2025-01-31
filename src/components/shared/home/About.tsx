@@ -40,9 +40,16 @@ const About = () => {
             Why Choose ResiLink?
           </h2>
           <p className="text-para text-center md:text-left text-sm md:text-lg font-medium mb-8">
-            ResiLink simplifies the process of finding your next home. Welcome
-            to ResiLink, your ultimate destination for connecting with available
-            residences around you.{" "}
+            ResiLink simplifies the process of finding your next home by providing a seamless connection to available houses through our dynamic platform.
+
+Our Mission
+At ResiLink, our mission is to provide swift and seamless access to vacant and affordable apartments, leveraging innovation to make housing more accessible and affordable for all.
+
+Our Vision
+Our vision is to become the benchmark for excellence in property renting and real estate in Africa and beyond, setting the standard for innovation, customer satisfaction, and community development.
+
+Our Core Values
+We are guided by a set of core values that include excellence, innovation, customer centricity and integrity{" "}
           </p>
           <section className="w-full flex justify-center md:justify-start">
             <section className="w-fit">
@@ -52,7 +59,7 @@ const About = () => {
                   navigate("/register");
                 }}
               >
-                Get Started
+                Join as Agent
               </ButtonBg>
             </section>
           </section>
