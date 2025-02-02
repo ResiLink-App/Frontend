@@ -1,55 +1,165 @@
-import React from 'react'
-import { ListingProps, RootState } from '../../../types/Interface'
-import { FaLocationDot } from 'react-icons/fa6'
-import { MdOutlineBedroomParent } from 'react-icons/md'
-import { GiHomeGarage } from 'react-icons/gi'
-import { IoCalendarOutline } from 'react-icons/io5'
-import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import { formatPrice } from '../../../utils/helpers'
+import React from "react";
+import { ListingProps, RootState } from "../../../types/Interface";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { formatPrice } from "../../../utils/helpers";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "../../../components/ui/tooltip";
 
 const PropList: React.FC<ListingProps> = ({ propList }) => {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
+  const { isLoggedIn } = useSelector((state: RootState) => state.user);
 
-    const { isLoggedIn } = useSelector((state: RootState) => state.user);
-    console.log(isLoggedIn);
+  const listingUrl = isLoggedIn
+    ? `/dashboard/listings/${propList._id}`
+    : `/listings/details/${propList._id}`;
 
-    return (
-        <section onClick={() => navigate(`${isLoggedIn ? `/dashboard/listings/${propList._id}` : `/listings/details/${propList._id}`}`)} className='shadow-xl cursor-pointer rounded-xl'>
-            <section className='relative'>
-                <section className='z-10 absolute left-3 top-3 bg-bc text-white px-3 py-2 text-sm rounded-xl'>
-                    For {propList.mode === 'RENT' ? 'Rent' : 'Sale'}
-                </section>
-                <section className='z-10 text-white bg-bc p-3 text-xl absolute bottom-0 right-0 rounded-tl-lg font-bold tracking-wider font-Kriss'>
-                    {formatPrice(propList.totalPrice)}<span className='text-bc2 text-base'>/Yr</span>
-                </section>
+  // FALLBACK IMAGE NEEDS TO BE ADDED INCASE PROP DOESNT HAVE IMG
+  const imageUrl = propList.images?.[0] || "/fallback-image.jpg";
+  const user = propList.postedBy;
+  const formattedDate = new Date(propList.createdAt).toLocaleDateString();
 
-                <section className='absolute inset-0 bg-black opacity-20 rounded-xl'></section>
-                <img className='h-[250px] w-full object-cover rounded-t-xl' src={propList.images[0] ? propList.images[0] : null} alt={propList.displayImage} />
-            </section>
-            <section className='p-5'>
-                <h2 className='text-bc font-semibold text-xl mb-2'>{propList.title}</h2>
-                <p className='text-para w-full flex items-center gap-1 text-sm mb-4'><FaLocationDot /><span>{propList.location.address}</span></p>
-                <section className='w-full grid grid-cols-2 text-para text-sm'>
-                    
-                </section>
-            </section>
-            <section className='border-t border-t-neutral-300 px-5 py-3 text-sm text-para'>
-                <section className="flex justify-between">
-                    <section className="flex gap-1 items-center">
-                        <section className="w-[30px] h-[30px] rounded-full">
-                            <img className="w-full rounded-full" src={propList.postedBy.profilePic} alt="" />
-                        </section>
-                        <span className=''>{propList.postedBy.firstName} {propList.postedBy.lastName}</span>
-                    </section>
-                    <section className="flex gap-2 items-center">
-                        <IoCalendarOutline />
-                        <span>{new Date(propList.createdAt).toLocaleDateString()}</span>
-                    </section>
-                </section>
-            </section>
-        </section>
-    )
-}
+  return (
+    <div
+      onClick={() => navigate(listingUrl)}
+      className="rounded-lg border cursor-pointer text-card-foreground shadow-sm group overflow-hidden transition-all duration-300 hover:shadow-lg"
+    >
+      <div className="relative aspect-[4/3] overflow-hidden">
+        <img
+          loading="lazy"
+          decoding="async"
+          className="object-cover transition-transform duration-300 group-hover:scale-110"
+          src={imageUrl}
+          alt={propList.displayImage || "Property image"}
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
 
-export default PropList
+        <div className="absolute left-4 right-4 top-4 flex justify-between">
+          <span className="rounded-full bg-bc p-1 px-3 text-sm font-medium text-white flex items-center justify-center">
+            For {propList.mode === "RENT" ? "Rent" : "Sale"}
+          </span>
+
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <button className="inline-flex items-center justify-center gap-2 text-sm font-medium h-8 w-8 rounded-full bg-white/90 hover:bg-white transition-colors">
+                  <Heart className="h-4 w-4" />
+                  <span className="sr-only">Add to favorites</span>
+                </button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Add to favorites</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </div>
+
+        <div className="absolute bottom-4 left-4">
+          <p className="text-2xl font-bold text-white">
+            {formatPrice(propList.totalPrice)}
+            <span className="text-sm font-normal">/Yr</span>
+          </p>
+        </div>
+      </div>
+
+      <div className="grid gap-2 p-4">
+        <h3 className="text-xl font-semibold tracking-tight">
+          {propList.title}
+        </h3>
+        <p className="flex items-center gap-1 text-sm text-muted-foreground">
+          <MapPin className="h-4 w-4" /> {propList.location?.address}
+        </p>
+      </div>
+
+      <div className="flex items-center justify-between border-t p-4">
+        <div className="flex items-center gap-2">
+          <span className="relative flex shrink-0 overflow-hidden rounded-full h-8 w-8">
+            <img
+              className="aspect-square h-full w-full"
+              alt={`${user?.firstName} ${user?.lastName}`}
+              src={user?.profilePic || "/default-avatar.jpg"}
+            />
+          </span>
+          <div className="text-sm">
+            <p className="font-medium leading-none">
+              {user?.firstName} {user?.lastName}
+            </p>
+          </div>
+        </div>
+        <div className="flex items-center gap-1 text-sm text-muted-foreground">
+          <Calendar className="h-4 w-4" /> {formattedDate}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default PropList;
+
+const Heart = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className="size-4"
+    {...props}
+  >
+    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+  </svg>
+);
+
+const MapPin = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className="size-4"
+    {...props}
+  >
+    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+    <circle cx="12" cy="10" r="3" />
+  </svg>
+);
+
+const Calendar = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className="size-4"
+    {...props}
+  >
+    <path d="M8 2v4" />
+    <path d="M16 2v4" />
+    <rect width="18" height="18" x="3" y="4" rx="2" />
+    <path d="M3 10h18" />
+  </svg>
+);

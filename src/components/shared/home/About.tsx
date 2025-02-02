@@ -3,9 +3,11 @@ import { FaUsers } from "react-icons/fa";
 import { MdConnectWithoutContact } from "react-icons/md";
 import { ButtonBg } from "../buttons/Buttons";
 import { GoPasskeyFill } from "react-icons/go";
+import Heading from "./headingTitle";
 
 const About = () => {
   const iconStyles = "text-2xl md:text-3xl text-para";
+  
   const steps = [
     {
       icon: <GoPasskeyFill className={iconStyles} />,
@@ -29,28 +31,37 @@ const About = () => {
     },
   ];
   const navigate = useNavigate();
+
   return (
-    <section id="about" className="relative z-10 bg-dv py-20 md:px-14 px-2">
+    <section id="about" className="md:px-10 px-4 py-20">
       <section className="w-full flex flex-col md:flex-row gap-10 items-center">
         <section className="w-full md:w-1/2">
-          <h3 className="text-bc font-medium text-lg md:text-xl mb-3 text-center md:text-left">
-            About Us
-          </h3>
-          <h2 className="text-black font-medium text-3xl md:text-4xl mb-8 text-center md:text-left">
-            Why Choose ResiLink?
-          </h2>
-          <p className="text-para text-center md:text-left text-sm md:text-lg font-medium mb-8">
-            ResiLink simplifies the process of finding your next home by providing a seamless connection to available houses through our dynamic platform.
-
-Our Mission
-At ResiLink, our mission is to provide swift and seamless access to vacant and affordable apartments, leveraging innovation to make housing more accessible and affordable for all.
-
-Our Vision
-Our vision is to become the benchmark for excellence in property renting and real estate in Africa and beyond, setting the standard for innovation, customer satisfaction, and community development.
-
-Our Core Values
-We are guided by a set of core values that include excellence, innovation, customer centricity and integrity{" "}
-          </p>
+          <Heading heading="About Us" subheading="Why Choose ResiLink?" />
+          <div className="mt-10">
+            <p className="text-base text-gray-900  text-left md:text-lg font-medium mb-8">
+              ResiLink simplifies the process of finding your next home by
+              providing a seamless connection to available houses through our
+              dynamic platform. <br />
+              <p className="pt-1.5 font-Chalty text-xl leading-6 font-medium text-gray-900">
+                Our Mission At ResiLink:{"  "}
+              </p>
+              Our mission is to provide swift and seamless access to vacant and
+              affordable apartments, leveraging innovation to make housing more
+              accessible and affordable for all. <br />
+              <p className="pt-1.5 font-Chalty text-xl leading-6 font-medium text-gray-900">
+                Our Vision:{" "}
+              </p>
+              Our vision is to become the benchmark for excellence in property
+              renting and real estate in Africa and beyond, setting the standard
+              for innovation, customer satisfaction, and community development.{" "}
+              <br />
+              <p className="pt-1.5 font-Chalty text-xl leading-6 font-medium text-gray-900">
+                Our Core Values:{" "}
+              </p>
+              We are guided by a set of core values that include excellence,
+              innovation, customer centricity and integrity{" "}
+            </p>
+          </div>
           <section className="w-full flex justify-center md:justify-start">
             <section className="w-fit">
               <ButtonBg
@@ -69,15 +80,15 @@ We are guided by a set of core values that include excellence, innovation, custo
             {steps.map((step, i) => (
               <section key={i} className="flex flex-col md:flex-row gap-4">
                 <section className="flex flex-row md:flex-col justify-center">
-                  <section className="bg-[#6f79832b]  w-fit p-3 md:p-5  justify-center flex items-center rounded-full">
+                  <section className="bg-gray-800/5  w-fit p-3 md:p-5  justify-center flex items-center rounded-full">
                     {step.icon}
                   </section>
                 </section>
                 <section className="flex flex-col gap-3">
-                  <h3 className="text-center md:text-left text-bc text-xs md:text-base font-semibold">
+                  <h3 className="text-center md:text-left text-bc text-base md:text-base font-semibold font-Chalty">
                     {step.title}
                   </h3>
-                  <p className="text-para text-center md:text-left text-sm md:text-3xl font-medium">
+                  <p className="text-gray-900 text-center md:text-left text-base md:text-3xl font-medium">
                     {step.descrip}
                   </p>
                 </section>

@@ -167,15 +167,12 @@ const ListingDetail: React.FC = () => {
           Contact Agent
         </h4>
         <div className="flex flex-wrap gap-4">
-          <a href={`tel:+${listing_details._id}`} className="w-full sm:w-auto">
+          <a href={`tel:+2348032926144`} className="w-full sm:w-auto">
             <ButtonBg className="bg-bc text-white py-2 px-4 flex gap-2 items-center w-full sm:w-auto rounded-md shadow-md">
               Call <BsTelephone />
             </ButtonBg>
           </a>
-          <a
-            href={`https://wa.me/+${listing_details._id}`}
-            className="w-full sm:w-auto"
-          >
+          <a href={`https://wa.link/sfzgvg`} className="w-full sm:w-auto">
             <ButtonBg className="bg-green-500 text-white py-2 px-4 flex gap-2 items-center w-full sm:w-auto rounded-md shadow-md">
               Whatsapp <BsWhatsapp />
             </ButtonBg>

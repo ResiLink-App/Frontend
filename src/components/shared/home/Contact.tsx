@@ -4,6 +4,7 @@ import { ButtonBg } from "../buttons/Buttons";
 import React from "react";
 import { useForm } from "@formspree/react";
 import { SuccessModal } from "./success-modal";
+import Heading from "./headingTitle";
 
 const Contact: React.FC = () => {
   // SHOULD CONSIDER PUTTING THE FORM ID: mqaeegka IN THE .ENV
@@ -18,14 +19,8 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="bg-white md:px-10 px-4 py-20">
-      <section className="w-full text-center">
-        <span className="uppercase text-bc text-base font-medium tracking-widest">
-          Have you got issues?
-        </span>
-        <h1 className="text-center font-semibold text-black md:text-4xl text-lg py-3 capitalize">
-          Contact Us
-        </h1>
-      </section>
+      <Heading heading="Have you got issues?" subheading="Contact Us" />
+
       <section className="w-full py-10 lg:px-20 px-4">
         <form onSubmit={handleSubmit}>
           <div className="w-full flex gap-5">
