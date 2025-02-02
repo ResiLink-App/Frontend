@@ -85,7 +85,6 @@ const ExclusiveBenefits = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Heading subheading="Start Earning Now!" />
           <div className="mt-10 grid md:grid-cols-2 gap-10">
-            {/* <div className="flex flex-wrap flex-col md:flex-row items-center justify-center gap-4 pb-10 pt-3 mx-auto"> */}
             {[
               {
                 title: "Refer and Earn",
@@ -101,7 +100,7 @@ const ExclusiveBenefits = () => {
               },
               {
                 title: "List Properties and Earn",
-                desc: "Upload vacant properties as a caretaker, landlord, or student. Earn a percentage of the rent each time your property is rented.",
+                desc: "Upload vacant properties and earn a percentage of the rent each time your property is rented.",
                 button: (
                   <a
                     target="_blank"
