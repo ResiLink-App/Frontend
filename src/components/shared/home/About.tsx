@@ -26,7 +26,7 @@ const About = () => {
     },
     {
       icon: <FaUsers className={iconStyles} />,
-      title: "No of Users",
+      title: "Total users",
       descrip: "789k",
     },
   ];
