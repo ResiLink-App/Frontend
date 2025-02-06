@@ -3,7 +3,7 @@ import { ButtonBg } from "../buttons/Buttons";
 import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const heroHeight = "h-[80vh] md:h-[65vh]";
 
   return (
