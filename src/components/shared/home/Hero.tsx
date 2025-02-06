@@ -1,6 +1,5 @@
 import hero_image from "../../../assets/images/hero-img.jpg";
 import { ButtonBg } from "../buttons/Buttons";
-import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
   // const navigate = useNavigate();
