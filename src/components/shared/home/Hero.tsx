@@ -49,7 +49,7 @@ const Hero = () => {
             <ButtonBg
               className="px-10 py-4 bg-bc text-white"
               onClick={() => {
-                navigate("/#listings");
+                window.location.hash = "#listings";
               }}
             >
               Get Started
