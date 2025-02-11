@@ -109,7 +109,9 @@ const Navbar: React.FC = () => {
           <section className="hidden md:block">
             <ButtonBg
               className={`px-6 text-white py-3 ${scrollHeight > 50 ? "bg-bc" : "bg-bc"}`}
-              onClick={() => navigate("/register")}
+              onClick={() => {
+                window.location.hash = "#listings";
+              }}
             >
               Get Started
             </ButtonBg>
