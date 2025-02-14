@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { ListingProps, RootState } from "../../../types/Interface.tsx";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -9,10 +9,13 @@ import {
   TooltipTrigger,
 } from "../../../components/ui/tooltip";
 import {Trash2} from "lucide-react";
+import { BASE_URL } from "../../../utils/apiRoutes";
+
 
 const PropList: React.FC<ListingProps> = ({ propList }) => {
   const navigate = useNavigate();
   const { isLoggedIn } = useSelector((state: RootState) => state.user);
+  const [isDeleting, setIsDeleting] = useState(false); // State to track delete operation
 
   const listingUrl = isLoggedIn
       ? `/dashboard/listings/${propList._id}`
@@ -22,10 +25,31 @@ const PropList: React.FC<ListingProps> = ({ propList }) => {
   const imageUrl = propList.images?.[0] || "/fallback-image.jpg";
   const user = propList.postedBy;
   const formattedDate = new Date(propList.createdAt).toLocaleDateString();
-  const handleDelete = (event: React.MouseEvent, id: string) => {
+
+  const handleDelete = async (event: React.MouseEvent, id: string) => {
     event.stopPropagation(); // Prevent navigation
-    console.log(`Delete listing with ID: ${id}`);
-    // Add your delete logic here (API call, Redux action, etc.)
+    if (!window.confirm("Are you sure you want to delete this listing?")) return;
+
+    setIsDeleting(true); // Show loader
+
+    try {
+      const response = await fetch(`${BASE_URL}/v1/agent/listing/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": "9ad07a9b7091e49b6afefa0c29d94d33:4449927ec0f020683862aa898eaf1f02c5087aed610ee170878b7381674ae453",
+        },
+      });
+
+      if (!response.ok) throw new Error("Failed to delete listing");
+
+      console.log(`Listing with ID: ${id} deleted successfully.`);
+      window.location.reload(); // Refresh or update state
+    } catch (error) {
+      console.error("Error deleting listing:", error);
+    } finally {
+      setIsDeleting(false); // Hide loader
+    }
   };
   return (
       <div
@@ -73,9 +97,28 @@ const PropList: React.FC<ListingProps> = ({ propList }) => {
                     <TooltipTrigger asChild>
                       <button
                           onClick={(event) => handleDelete(event, propList._id)}
-                          className="inline-flex items-center justify-center gap-2 text-sm font-medium h-8 w-8 rounded-full bg-red-500 hover:bg-red-600 text-white transition-colors"
+                          disabled={isDeleting} // Disable when deleting
+                          className={`inline-flex items-center justify-center gap-2 text-sm font-medium h-8 w-8 rounded-full ${
+                              isDeleting ? "bg-red-300 cursor-not-allowed" : "bg-red-500 hover:bg-red-600"
+                          } text-white transition-colors`}
                       >
-                        <Trash2 className="h-4 w-4" />
+                        {isDeleting ? (
+                            <svg
+                                className="animate-spin h-4 w-4"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                              <path
+                                  className="opacity-75"
+                                  fill="currentColor"
+                                  d="M4 12a8 8 0 018-8v8H4z"
+                              ></path>
+                            </svg>
+                        ) : (
+                            <Trash2 className="h-4 w-4" />
+                        )}
                         <span className="sr-only">Delete listing</span>
                       </button>
                     </TooltipTrigger>
