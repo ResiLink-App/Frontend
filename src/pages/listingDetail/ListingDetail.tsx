@@ -92,7 +92,8 @@ const ListingDetail: React.FC = () => {
               ))}
             </div>
             <h2 className="text-2xl font-semibold text-gray-800 font-Kriss">
-              ₦{listing_details.price}
+              {new Intl.NumberFormat("en-US", { style: "currency", currency: "NGN" }).format(listing_details.price)}
+
             </h2>
           </div>
         </div>
@@ -102,10 +103,10 @@ const ListingDetail: React.FC = () => {
             <MdOutlineBedroomParent className="text-lg" />
             <span>{listing_details.rooms} Rooms</span>
           </li>
-          <li className="flex items-center gap-2">
-            <MdOutlineBathroom className="text-lg" />
-            <span>4 Bedrooms</span>
-          </li>
+          {/*<li className="flex items-center gap-2">*/}
+          {/*  <MdOutlineBathroom className="text-lg" />*/}
+          {/*  <span>4 Bedrooms</span>*/}
+          {/*</li>*/}
         </ul>
       </section>
 
@@ -140,7 +141,7 @@ const ListingDetail: React.FC = () => {
               <span className="font-medium">Property Size:</span> NaN
             </li>
             <li>
-              <span className="font-medium">City:</span> Akure
+              <span className="font-medium">City:</span> Benin
             </li>
           </ul>
           {/* <ul className="space-y-2">
@@ -172,7 +173,7 @@ const ListingDetail: React.FC = () => {
               Call <BsTelephone />
             </ButtonBg>
           </a>
-          <a href={`https://wa.link/sfzgvg`} className="w-full sm:w-auto">
+          <a href={`https://wa.link/fynvpj`} className="w-full sm:w-auto">
             <ButtonBg className="bg-green-500 text-white py-2 px-4 flex gap-2 items-center w-full sm:w-auto rounded-md shadow-md">
               Whatsapp <BsWhatsapp />
             </ButtonBg>

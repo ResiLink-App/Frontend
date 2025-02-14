@@ -66,7 +66,8 @@ const PropList: React.FC<ListingProps> = ({ propList }) => {
 
         <div className="absolute bottom-4 left-4">
           <p className="text-2xl font-bold text-white">
-            {formatPrice(propList.totalPrice)}
+            {new Intl.NumberFormat("en-US", { style: "currency", currency: "NGN" }).format(propList.totalPrice)}
+
             <span className="text-sm font-normal">/Yr</span>
           </p>
         </div>
