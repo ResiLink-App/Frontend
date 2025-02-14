@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { MdOutlineBathroom, MdOutlineBedroomParent } from "react-icons/md";
+import {  MdOutlineBedroomParent } from "react-icons/md";
 import { BsFillStarFill, BsTelephone, BsWhatsapp } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
