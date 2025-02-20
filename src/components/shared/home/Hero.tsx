@@ -46,13 +46,19 @@ const Hero = () => {
 
           <section className="w-fit mx-auto">
             <ButtonBg
-              className="px-10 py-4 bg-bc text-white"
-              onClick={() => {
-                window.location.hash = "#listings";
-              }}
+                className="px-10 py-4 bg-bc text-white m-2"
+                onClick={() => {
+                  window.location.hash = "#listings";
+                }}
             >
               Get Started
             </ButtonBg>
+
+            <a href="/app-release.apk" download>
+              <ButtonBg className="px-10 py-4 bg-green-500 text-white">
+                Download App
+              </ButtonBg>
+            </a>
           </section>
         </section>
       </section>
