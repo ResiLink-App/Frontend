@@ -55,7 +55,7 @@ const Hero = () => {
             </ButtonBg>
 
             <a href="/app-release.apk" download>
-              <ButtonBg className="px-10 py-4 bg-green-500 text-white">
+              <ButtonBg className="px-10 py-4 bg-green-500 text-white m-2">
                 Download App
               </ButtonBg>
             </a>
