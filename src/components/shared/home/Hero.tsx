@@ -54,7 +54,7 @@ const Hero = () => {
               Get Started
             </ButtonBg>
 
-            <a href="/app-release.apk" download>
+            <a href="https://drive.usercontent.google.com/download?id=1-5ec51elAfR1-UjcuMGl3rsx34tMtI3k&export=download&confirm=t&uuid=cbe53bb0-6e4c-4818-bf43-368868089582" download>
               <ButtonBg className="px-10 py-4 bg-green-500 text-white m-2">
                 Download App
               </ButtonBg>
